@@ -38,7 +38,11 @@ _Authors_: Schmele, Tim; García-Garzón, David; Sayin, Umut; Scaini, Davide; Ar
 Public Code:
 * ATM my public code is very limited (for several reasons). In "this repository":https://bitbucket.org/davrandom/misc_projects/src I collect some files that I find useful (configuration files or nano-projects).
 This might not be useful for other people, but after few times I forgot/lost code around, I simply decided that it's better to publish it. 
-* During my period in BM I devloped "IDHOA":https://github.com/BarcelonaMedia-Audio/idhoa which is a piece of code to generate Ambisonics decodings for periphonic or dome-like irregular layouts. We wrote a paper presented at 55th AES International Conference. The code is GPL, so feel free to contribute.
+* During my period in BM I devloped "IDHOA":https://github.com/BarcelonaMedia-Audio/idhoa which is a piece of code to generate Ambisonics decodings for periphonic or dome-like irregular layouts. We wrote a paper presented at 55th AES International Conference (August 2014). The code is GPL, so feel free to contribute.
+_update_ I forked my own project since I left BM. The "updated code can be found here.":https://github.com/davrandom/idhoa We presented another paper on IDHOA at the 138th AES Convention (May 2015) *`An Evaluation of the IDHOA Ambisonics Decoder in Irregular Planar Layouts´*.
 
 Presentations:
 * TBD
+
+Papers: my papers are listed "here":http://www.researchgate.net/profile/Davide_Scaini/publications
+If you want a copy, just contact me somehow.

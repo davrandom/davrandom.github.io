@@ -3,6 +3,7 @@ layout: post
 title: Back with jekyll
 tags: memo metapost
 category: memo
+comments: true
 
 excerpt: An "hope I will be better" kind of post
 

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Back with jekyll
-category: Meta memo
+tags: memo metapost
+category: memo
 
 excerpt: An "hope I will be better" kind of post
 

@@ -18,6 +18,8 @@ navigation:
    url: /index.html
  - title: About
    url: /about.html
+ - title: Archive
+   url: /archive.html
  
 social:
     twitter: dav_random

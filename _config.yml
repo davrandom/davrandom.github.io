@@ -20,9 +20,12 @@ navigation:
    url: /about.html
  - title: Archive
    url: /archive.html
+ - title: Tags
+   url: /tag.html
  
 social:
     twitter: dav_random
     github:  davrandom
 
-
+tag_page_layout: tag_page
+tag_page_dir: tag

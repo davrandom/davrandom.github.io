@@ -6,6 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
+tag_permalink_style: pretty
 url: "http://scaini.org" # the base hostname & protocol for your site
 
 # Build settings
@@ -21,7 +22,7 @@ navigation:
  - title: Archive
    url: /archive.html
  - title: Tags
-   url: /tag.html
+   url: /tags/index.html
  
 social:
     twitter: dav_random

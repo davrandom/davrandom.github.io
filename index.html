@@ -9,7 +9,21 @@ layout: default
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
         <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-        <p class="description">{% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 250 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 250 }}{% endif %}</p>
+        
+    {{ post.excerpt }} 
+    {% capture content_words %} 
+    {{ post.content | number_of_words }} 
+    {% endcapture %} 
+    {% capture excerpt_words %} 
+    {{ post.excerpt | number_of_words }} 
+    {% endcapture %} 
+    {% if excerpt_words != content_words %}
+    <p><a class="btn btn-sm btn-primary" href="{{site.baseurl}}{{ post.url }}/#read-more" role="button">Read more <i class="fa fa-arrow-circle-right"></i></a>
+    </p>
+    {% endif %}
+    
+    {% include tagsforpost.html tags=post.tags %}
+        
       </li>
     {% endfor %}
   </ul>

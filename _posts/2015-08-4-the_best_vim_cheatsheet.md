@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The best Vim cheatsheet
-tags: memo tips
+tags: [memo, tips]
 category: memo
 comments: true
 

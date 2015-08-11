@@ -6,7 +6,6 @@ sharing: true
 footer: true
 ---
 
-
 <ul class="posts">
 {% assign year = "" %}
 

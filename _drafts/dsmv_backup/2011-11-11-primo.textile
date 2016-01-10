@@ -1,0 +1,10 @@
+---
+layout: post
+title: Primo
+tags: []
+categories: it
+---
+Dopo qualche anno di esperienza con drupal, sto tentando di avvicinarmi a textpattern. Lo trovo sicuramente meno intuitivo come inizio, ma spero di avere tempo da dedicargli perché lo trovo molto pulito.
+
+Riuscirò mai a fare una galleria d'immagini?
+d

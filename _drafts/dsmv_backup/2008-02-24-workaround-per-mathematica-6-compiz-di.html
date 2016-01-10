@@ -1,0 +1,16 @@
+---
+layout: post
+title: workaround per mathematica 6 + compiz di Marco Szalay
+date: '2008-02-24T14:57:00.003+01:00'
+author: davide scaini
+tags:
+- chicche
+- grafica
+- Linux
+modified_time: '2008-02-25T12:01:16.195+01:00'
+thumbnail: http://bp2.blogger.com/_20vectbl-Js/R8F5ip7JnzI/AAAAAAAAEk4/e7vXVuXj7a0/s72-c/Screenshot.png
+blogger_id: tag:blogger.com,1999:blog-23341453.post-1736539078042905072
+blogger_orig_url: http://dsmv.blogspot.com/2008/02/workaround-per-mathematica-6-compiz-di.html
+---
+
+<span style="font-size:130%;"><span style="font-weight: bold;">Come usare insieme Compiz Fusion e Mathematica senza problemi, in Ubuntu Linux</span></span><br /><br />Ti sarà capitato di usare mathematica 6 con compiz/beryl/kwin acceso e di ritrovarti con due finestre bianche senza pulsanti, molto antiestetiche, che sono il rimasuglio di un conflitto tra il kernel di mathematica (scritto in java) e il composite manager.<br /><br />Fino a ieri, quando dovevo usare mathematica, spegnevo compiz, con gran rottura di maroni perchè tutte le finestre di tutti gli schermi finivano inesorabilmente sul workspace1.<br />Il trick è questo: apri mathematica, vai su Edit>Preferences e clicca su "Open Option Inspector".<br />Questo dovrebbe essere il cuore delle opzioni in mathematica (quando trovo del tempo, mi metto a spulciare le altre opzioni, promesso).<br />A questo punto basta andare su Notebook Options>Window Properties e selezionare nel menù a tendina di Window Frame la voce "Generic" anzichè "Normal" e come per magia tutto tornerà al suo posto.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp2.blogger.com/_20vectbl-Js/R8F5ip7JnzI/AAAAAAAAEk4/e7vXVuXj7a0/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://bp2.blogger.com/_20vectbl-Js/R8F5ip7JnzI/AAAAAAAAEk4/e7vXVuXj7a0/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5170547483474501426" border="0" /></a><br />Non ho riscontrato problemi particolari con questo metodo, all'avvio le due finestre appaiono per qualche decimo di secondo e poi spariscono, rallentando quindi di qualche decimo l'avvio del programma, ma chissenefrega :o).<br /><br />MarcoS

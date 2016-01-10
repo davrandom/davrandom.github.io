@@ -1,0 +1,17 @@
+---
+layout: post
+title: "[error 15 grub Ubuntu] Mbr cancellato da windows.. Soluzione!"
+date: '2007-12-10T09:33:00.000+01:00'
+author: Marco
+tags:
+- Computer
+- Vita Vera
+- Linux
+- Stickers
+modified_time: '2008-01-15T18:32:34.327+01:00'
+thumbnail: http://bp2.blogger.com/_bIM5f8XDjjI/R1z-fYHTpQI/AAAAAAAAAKo/WD4ZwvI9Wqs/s72-c/pc_crash%5B1%5D.jpg
+blogger_id: tag:blogger.com,1999:blog-23341453.post-2290390638771273424
+blogger_orig_url: http://dsmv.blogspot.com/2007/12/err-15-grub-mbr-cancellato-da-windows.html
+---
+
+<span style="font-weight: bold;">Ovvero come sputtanare tutto in 30 secondi (con windows) e venir salvati</span><span style="font-weight: bold;"> dal fatto che il pinguino e' un sistema operativo serio!<br /><br /></span><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp2.blogger.com/_bIM5f8XDjjI/R1z-fYHTpQI/AAAAAAAAAKo/WD4ZwvI9Wqs/s1600-h/pc_crash%5B1%5D.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://bp2.blogger.com/_bIM5f8XDjjI/R1z-fYHTpQI/AAAAAAAAAKo/WD4ZwvI9Wqs/s320/pc_crash%5B1%5D.jpg" alt="" id="BLOGGER_PHOTO_ID_5142264689552762114" border="0" /></a>Dato che sono uno sperimantale e dato che ero appena riscito a configurare il mio pinguino in ogni suo aspetto, insomma era come lo volevo, ho deciso di sputtanarlo!<br /><br />Visto che con il pinguino e' davvero molto dura sputtanare tutto, ho deciso di usare windows.. come?<br /><br />Ho semplicemente installato partition magic.. solo installato badate bene!<br />Poi l'ho fatto partire e si e'bloccato, dopo 10min di pc impallato ho riavviato e il simpatico errore 15 di grub era li a farmi ciao con la manina!<br />(mi e' successo molte volte, ma lo schermo nero mi inquieta ancora parecchio)<br /><br />Solo su Win puo' succedere un tale casino senza l'intervento umano..<br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp3.blogger.com/_bIM5f8XDjjI/R1z_woHTpRI/AAAAAAAAAKw/gv1zB7wDqGA/s1600-h/grub.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://bp3.blogger.com/_bIM5f8XDjjI/R1z_woHTpRI/AAAAAAAAAKw/gv1zB7wDqGA/s320/grub.jpg" alt="" id="BLOGGER_PHOTO_ID_5142266085417133330" border="0" /></a>Per fortuna una volta ero un uomo coscienzioso e avevo masterizzato il Super Grub Disc <a href="http://supergrub.forjamari.linex.org/">http://supergrub.forjamari.linex.org/</a><br />Avviandolo, andando in avanzate e poi scegliendo il ripristino di grub, in modo automatico, lui ha piu' o meno risolto..<br />Ossia la cosa fondamentale l'ha fatta: ha reinstallato Grub nel MBR con la configurazione precendente, purtroppo aveva sbagliato di numerare i dischi e metteva la partizione di root in hd0,5 invece di hd0,6 ma cambiando a mano la riga all'avvio tutto si e' aggiustato(premendo 'e' puoi editare la riga di grub sbagliata, una volta corretto il parametro premendo 'b' si avvia la riga selezionata)<br /><br />Attenzione che poi bisogna editare in modo permanente il file menu.list nella cartella /boot/grub con un sudo gedit /boot/grub/munu.list<br /><br />Torna a <a href="http://ds&amp;mv.blogspot.com">Ds&amp;Mv Home</a><br /><span style="font-weight: bold;"></span>

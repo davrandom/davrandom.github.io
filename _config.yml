@@ -19,6 +19,8 @@ navigation:
    url: /index.html
  - title: About
    url: /about.html
+ - title: Moto
+   url: /moto.html
  - title: Archive
    url: /archive.html
  - title: Tags

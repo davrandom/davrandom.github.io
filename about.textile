@@ -27,12 +27,9 @@ Documents:
 * My Master's thesis *`Study of the associated production of a Z boson and hadronic jets in proton-proton collisions at the CMS experiment'* ("on INFN official website":http://www.infn.it/thesis/thesis_dettaglio.php?tid=5970)
 * My Bachelor's thesis *`Una tecnica di calibrazione con elettroni isolati per il calorimetro elettromagnetico di CMS'* ("on INFN official website":http://www.infn.it/thesis/thesis_dettaglio.php?tid=2644) ("or download from here":http://scaini.org/site/file_download/12/tesi.pdf)
 
-* *`Decoding of Higher Order Ambisonics to Irregular Periphonic Loudspeaker Arrays´*
-_Authors_: Scaini, Davide; Areaga, Daniel. "Published":http://www.aes.org/e-lib/browse.cfm?elib=17364 in 55th AES International Conference: Spatial Audio (Helsinki, August 2014)
-* *`Measurements of jet multiplicity and differential production cross sections of Z+jets events in proton-proton collisions at sqrt(s)=7 TeV´*
-_Authors_: CMS Collaboration. "Published":http://arxiv.org/abs/arXiv:1408.3104 Submitted to Phys. Rev. D
-* *`Layout Remapping Tool for Multichannel Audio Productions´* 
-_Authors_: Schmele, Tim; García-Garzón, David; Sayin, Umut; Scaini, Davide; Arteaga, Daniel. "Published":http://www.aes.org/e-lib/browse.cfm?elib=16807 in AES 134th Convention.
+* *Papers*: my papers are listed "here":http://www.researchgate.net/profile/Davide_Scaini/publications
+If you want a copy, just contact me somehow.
+
 
 
 Public Code:
@@ -44,5 +41,4 @@ _update_ I forked my own project since I left BM. The "updated code can be found
 Presentations:
 * TBD
 
-Papers: my papers are listed "here":http://www.researchgate.net/profile/Davide_Scaini/publications
-If you want a copy, just contact me somehow.
+

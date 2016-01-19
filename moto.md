@@ -16,11 +16,11 @@ footer: true
 
 # My motos
 
-- Piaggio Vespa ET4 125cc (1995) 2007
-- Piaggio Vespa P125X (1981) 2008
-- Yamaha Fazer FZ6s1 600cc (2005) 2011
-- Yamaha XT750Z Super Ténéré (1989) 2013
-- Yamaha XT1200Z Super Ténéré (2011) 2015
+- Piaggio Vespa ET4 125cc (1995) 2007 - [blog entry](/blog/come-non-fare-un-cambio-dolio-in-vespa/)
+- Piaggio Vespa P125X (1981) 2008 - [restoration pictures](https://goo.gl/photos/UTGvWNNEju1TLxnn6)
+- Yamaha Fazer FZ6s1 600cc (2005) 2011 - [Dory pics](https://goo.gl/photos/RF7MPuh22gc5tLLW9)
+- Yamaha XT750Z Super Ténéré (1989) 2013 
+- Yamaha XT1200Z Super Ténéré (2011) 2015 - [some pics](https://www.flickr.com/photos/davrandom/albums/72157663428671052)
 
 <a name="My equipment"></a>
 
@@ -67,7 +67,7 @@ footer: true
 2. testing Dory: [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
 3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
 4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
-5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing)
+5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
 6. Sardinia (north)
 
 

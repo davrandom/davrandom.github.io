@@ -10,8 +10,8 @@ image: "garage.jpg"
 
 # Table of Contents
 1. [Motos](#My motos)
-2. [Equipment](#My equipment)
-3. [Trips](#My trips)
+2. [Trips](#My trips)
+3. [Equipment](#My equipment)
 
 
 <a name="My motos"></a>
@@ -24,8 +24,26 @@ image: "garage.jpg"
 - Yamaha XT750Z Super Ténéré (1989) 2013 
 - Yamaha XT1200Z Super Ténéré (2011) 2015 - [some pics](https://www.flickr.com/photos/davrandom/albums/72157663428671052)
 
-<a name="My equipment"></a>
 
+<a name="My trips"></a>
+
+# My trips
+
+1. Trieste - Dubrovnik and back, with Andrea 
+(maps: [day1](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.krcDA5KvbldM&usp=sharing), 
+[day2](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k0OmdCDj7xfQ&usp=sharing),
+[day3](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kTSRMMTbDvfQ&usp=sharing),
+[day4](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7wlrqPBMF1M&usp=sharing),
+[day5](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kYSl1OLDxuJ0&usp=sharing)
+)
+2. testing Dory: [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
+3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
+4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
+5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
+6. Sardinia (north)
+
+
+<a name="My equipment"></a>
 
 # My equipment
 
@@ -54,23 +72,6 @@ image: "garage.jpg"
 | `--` | really no                              |
 | `---`| run away                               |
 
-
-<a name="My trips"></a>
-
-# My trips
-
-1. Trieste - Dubrovnik and back, with Andrea 
-(maps: [day1](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.krcDA5KvbldM&usp=sharing), 
-[day2](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k0OmdCDj7xfQ&usp=sharing),
-[day3](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kTSRMMTbDvfQ&usp=sharing),
-[day4](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7wlrqPBMF1M&usp=sharing),
-[day5](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kYSl1OLDxuJ0&usp=sharing)
-)
-2. testing Dory: [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
-3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
-4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
-5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
-6. Sardinia (north)
 
 
 # Advices

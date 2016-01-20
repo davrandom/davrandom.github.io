@@ -1,10 +1,12 @@
 ---
-layout: page
+layout: page_w_picture
 title: "Moto"
 comments: true
 sharing: true
 footer: true
+image: "garage.jpg"
 ---
+
 
 # Table of Contents
 1. [Motos](#My motos)

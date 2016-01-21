@@ -8,7 +8,7 @@ image: "garage.jpg"
 ---
 
 
-# Table of Contents
+## Table of Contents
 1. [Motos](#My motos)
 2. [Trips](#My trips)
 3. [Equipment](#My equipment)
@@ -16,7 +16,7 @@ image: "garage.jpg"
 
 <a name="My motos"></a>
 
-# My motos
+## My motos
 
 - Piaggio Vespa ET4 125cc (1995) 2007 - [blog entry](/blog/come-non-fare-un-cambio-dolio-in-vespa/)
 - Piaggio Vespa P125X (1981) 2008 - [restoration pictures](https://goo.gl/photos/UTGvWNNEju1TLxnn6)
@@ -27,7 +27,7 @@ image: "garage.jpg"
 
 <a name="My trips"></a>
 
-# My trips
+## My trips
 
 1. Trieste - Dubrovnik and back, with Andrea 
 (maps: [day1](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.krcDA5KvbldM&usp=sharing), 
@@ -45,9 +45,9 @@ image: "garage.jpg"
 
 <a name="My equipment"></a>
 
-# My equipment
+## My equipment
 
-## Clothes and helmet
+### Clothes and helmet
 
 | Clover jacket        | `+++` | 
 | HJC helmet           | `++`  | 
@@ -57,13 +57,13 @@ image: "garage.jpg"
 | Rain trousers rev'it | `+`   | 
 | Dainese jeans        | `+`   | 
 
-## Bike accessories
+### Bike accessories
 
 | Touratech "Regulador de parabrisas" for xt1200z  | +  |
 | Altrider Crashbars fot xt1200z                   | ++ |
 
 
-## Legend
+### Legend
 
 | `+++`| wow                                    |
 | `++` | very good                              |
@@ -74,7 +74,12 @@ image: "garage.jpg"
 
 
 
-# Advices
+## Advices
 
 - [must see in Friuli](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kH3Z7fzAwIbU&usp=sharing)
 - [must see in Catalunya](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kW_hRy82ZUik&usp=sharing)
+
+
+
+(top picture is taken from my Flickr album, [here](https://www.flickr.com/photos/davrandom/8449436181)) 
+

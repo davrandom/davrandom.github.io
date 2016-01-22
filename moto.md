@@ -45,7 +45,7 @@ Fazer FZ6 S1, ufficialmente Dory, con la quale inizio il mio percorso nel mondo 
 - Yamaha **Fazer FZ6s1** 600cc (2005), _Dory_ <br> 
   bought early 2011 // sold mid 2015 - ~30kkm <br> 
   [Dory pics](https://goo.gl/photos/RF7MPuh22gc5tLLW9)
-- Yamaha **XT750Z Super Ténéré** (1989), _Tenerona_ <br>
+- [Yamaha **XT750Z Super Ténéré** (1989)](/blog/tenerona), _Tenerona_ <br>
   bought dec 2013 // sold mid 2015 - ~7kkm
 - Yamaha **XT1200Z Super Ténéré** (2011), _La Bestia_ <br>
   bought mid 2015 // sold XX - ~6kkm <br>

@@ -36,7 +36,7 @@ economico) abbiamo convertito da rottame a scoppiettante insetto. Questa inaffid
 (che numeri...)  ma anche decisamente stufato delle ruote piccole e dei freni a tamburo. Nel 2011 riesco a (farmi) comprare una Yamaha
 Fazer FZ6 S1, ufficialmente Dory, con la quale inizio il mio percorso nel mondo motociclistico over 125cc.
 
-- Piaggio **Vespa ET4** 125cc (1996) <br>
+- [Piaggio **Vespa ET4** 125cc (1996)](/blog/vespettaET4) <br>
   bought end 2007 // sold XX  - ~10kkm <br> 
   [blog entry](/blog/come-non-fare-un-cambio-dolio-in-vespa/)
 - Piaggio **Vespa P125X** (1981) <br>

@@ -11,6 +11,8 @@ url: "http://scaini.org" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
+kramdown:
+    input: GFM
 highlighter: pygments
 paginate: 5
 

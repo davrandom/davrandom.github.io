@@ -2,6 +2,7 @@
 layout: post
 title: My Vespa ET4 1996
 category: moto
+comments: true
 
 excerpt: Un pomeriggio estivo nel dipartimento di Fisica, dopo una partita di scopone, sfoglio il settimanale di annunci della zona, "il Mercatino". Trovo l'annuncio di una Vespa ET4 del 96 per 450 euro, esattamente il mio budget! Poi la Vespa... 
 

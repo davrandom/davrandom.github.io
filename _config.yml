@@ -22,9 +22,11 @@ navigation:
  - title: About
    url: /about.html
  - title: Moto
-   url: /moto.html
+   url: /moto/index.html
+ - title: Loudspeakers
+   url: /loudspeakers/index.html
  - title: Archive
-   url: /archive.html
+   url: /archive/index.html
  - title: Tags
    url: /tags/index.html
  

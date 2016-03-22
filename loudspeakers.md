@@ -4,7 +4,7 @@ title: "Loudspeakers"
 comments: true
 sharing: true
 footer: true
-image: "garage.jpg"
+image: "loudspeakers.jpg"
 ---
 
 

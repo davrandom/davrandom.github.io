@@ -4,7 +4,7 @@ title: "Loudspeakers"
 comments: true
 sharing: true
 footer: true
-image: "loudspeakers.jpg"
+image: "loudspeakers_small.jpg"
 ---
 
 
@@ -24,6 +24,7 @@ image: "loudspeakers.jpg"
 
 ## Zero model
 
+![model Zero (terrible mobile phone picture...)](https://farm2.staticflickr.com/1588/25864464542_67f3732361.jpg)
 
 
 <a name="One model"></a>

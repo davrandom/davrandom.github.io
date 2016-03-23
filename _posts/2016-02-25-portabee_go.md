@@ -2,6 +2,7 @@
 layout: post
 title: Running Portabee GO v1 from MacOs
 category: nerdiness memo tips
+comments: true
 
 excerpt: I'm finally entering the world of 3D printing. After having printed a small piece and payed quite some money, I decided to go for neighbouring resources. A colleague of mine has a small Portabee Go v1, so I decided to try it out.
 

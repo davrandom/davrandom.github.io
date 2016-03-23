@@ -2,6 +2,7 @@
 layout: post
 title: Regulador de parabrisas Touratech, mi experiencia
 category: moto diy
+comments: true
 
 excerpt: En junio 2015 compré una Yamaha Super Ténéré XT1200Z de segunda mano (2011). Como soy bastante alto, la pantalla normal no me cubre en los trayectos en autopista, mientras que con la pantalla más alta me faltan los clásicos dos dedos para estar bien cubierto.
 

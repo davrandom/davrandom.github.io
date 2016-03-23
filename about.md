@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------
 
-layout: page\
-title: "about me"\
-comments: true\
-sharing: true\
-footer: true\
+layout: page
+title: "about me"
+comments: true
+sharing: true
+footer: true
 ---
 
-![](images/18t.jpg)\
+![That's me!](images/18t.jpg)
 picture by [Superben,](http://www.flickr.com/photos/superben155) thanks!
 
 I'm **interested** in *open source, i.e. GNU/Linux, open hardware
@@ -36,20 +36,20 @@ I am not responsible for reader's comments.
 <hr>
 **Documents**:
 
--   My Master's thesis **\`Study of the associated production of a Z
+-   My Master's thesis **`Study of the associated production of a Z
     boson and hadronic jets in proton-proton collisions at the CMS
     experiment'** ([on INFN official
     website](http://www.infn.it/thesis/thesis_dettaglio.php?tid=5970))
--   My Bachelor's thesis **\`Una tecnica di calibrazione con elettroni
+-   My Bachelor's thesis **`Una tecnica di calibrazione con elettroni
     isolati per il calorimetro elettromagnetico di CMS'** ([on INFN
     official
     website](http://www.infn.it/thesis/thesis_dettaglio.php?tid=2644))
     ([or download from
     here](http://scaini.org/site/file_download/12/tesi.pdf))
 
-**Papers**:\
+**Papers**:
 My papers are listed
-[here](http://www.researchgate.net/profile/Davide_Scaini/publications)\
+[here](http://www.researchgate.net/profile/Davide_Scaini/publications)
 If you want a copy, just contact me somehow.
 
 **Public Code**:
@@ -57,7 +57,7 @@ If you want a copy, just contact me somehow.
 -   ATM my public code is very limited (for several reasons). In [this
     repository](https://bitbucket.org/davrandom/misc_projects/src) I
     collect some files that I find useful (configuration files or
-    nano-projects).\
+    nano-projects).
     This might not be useful for other people, but after few times I
     forgot/lost code around, I simply decided that it's better to
     publish it.
@@ -66,7 +66,7 @@ If you want a copy, just contact me somehow.
     piece of code to generate Ambisonics decodings for periphonic or
     dome-like irregular layouts. We wrote a paper presented at 55th AES
     International Conference (August 2014). The code is GPL, so feel
-    free to contribute.\
+    free to contribute.
     *update* I forked my own project since I left BM. The [updated code
     can be found here.](https://github.com/davrandom/idhoa) We presented
     another paper on IDHOA at the 138th AES Convention (May 2015) **\`An

@@ -23,7 +23,7 @@ navigation:
  - title: Home
    url: /index.html
  - title: About
-   url: /about.html
+   url: /about/index.html
  - title: Moto
    url: /moto/index.html
  - title: Loudspeakers

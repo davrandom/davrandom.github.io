@@ -1,6 +1,6 @@
 ---
 layout: page_w_picture
-title: "Loudspeakers"
+title: "/ear/nest"
 comments: true
 sharing: true
 footer: true

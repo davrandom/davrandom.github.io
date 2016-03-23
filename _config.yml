@@ -15,6 +15,7 @@ kramdown:
     input: GFM
 #highlighter: pygments
 highlighter: rouge
+gems: [jekyll-paginate]
 paginate: 5
 
 navigation:

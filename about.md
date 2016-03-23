@@ -6,7 +6,7 @@ sharing: true
 footer: true
 ---
 
-![That's me!](images/18t.jpg)
+![That's me!](/images/18t.jpg)
 picture by [Superben,](http://www.flickr.com/photos/superben155) thanks!
 
 I'm **interested** in *open source, i.e. GNU/Linux, open hardware

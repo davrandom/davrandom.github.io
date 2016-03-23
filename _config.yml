@@ -13,9 +13,11 @@ url: "http://scaini.org" # the base hostname & protocol for your site
 markdown: kramdown
 kramdown:
     input: GFM
-#highlighter: pygments
+
 highlighter: rouge
+gems: [jekyll-paginate]
 paginate: 5
+
 
 navigation:
  - title: Home
@@ -34,6 +36,8 @@ navigation:
 social:
     twitter: dav_random
     github:  davrandom
+    
+disqus: davrandom
 
 tag_page_layout: tag_page
 tag_page_dir: tag

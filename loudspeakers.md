@@ -20,7 +20,7 @@ image: "loudspeakers_small.jpg"
 
 Here I will publish my loudspeakers' designs with as much detail as possible. If you have questions or feel that some detail is missing, feel free to ask in the comments section below.
 
-The name I chose for my loudspeakers, /ear/nest, should explain clearly what is the philosophy: they are Earnest, honest, I will publish as much details, measurements, ... as I can, and they are possibly good, an "ear nest".
+The name I chose for my loudspeakers, **/ear/nest**, should explain clearly what is the philosophy: they are **Earnest**, *honest*, I will publish as much details, measurements, ... as I can, and they are possibly *good*, an "**ear nest**".
 
 <a name="Zero model"></a>
 
@@ -34,9 +34,9 @@ The idea here was to prove that, with the limited tools I have, I am able to cut
 
 
 ### Hardware
-* Tymphany TC9FD18-08 3-1/2" full range paper cone woofer (from Parts Express)
+* [Tymphany TC9FD18-08 3-1/2"](http://www.parts-express.com/tymphany-tc9fd18-08-3-1-2-full-range-paper-cone-woofer--264-1062) full range paper cone woofer (from Parts Express)
 * 1 cm thick plywood (from local LeRoy Merlin)
-* Square speaker wire spring terminal cup (from Parts Express)
+* [Square speaker wire spring terminal cup](http://www.parts-express.com/parts-express-square-speaker-wire-spring-terminal-cup--260-297) (from Parts Express)
 
 ### Design
 It is a simple 12 cm cube (outer dimensions). The transducer is mounted from the inside, because it's meant to be like that.
@@ -56,8 +56,8 @@ The design is quite common, for example see Auratone (bigger) or Grover Notting 
 ### Hardware
 * MA 5.5" carbon fiber woofer (custom design), resonance at 50 Hz, 8 Ohm impedance
 * [Sica LP 90.28 / N92 TW](http://www.sonoraspeakers.it/lp-90-28-n92-tw.html), 8 Ohm impedance
-* 2x125 W B&O D-class amplifier
-* 2 ch DSP by freedsp.cc
+* 2x125 W B&O D-class amplifier [ICEpower 125ASX2](http://www.icepower.bang-olufsen.com/files/solutions/icepower125asx2_datasheet_1_3_20151203.pdf)
+* 2 ch DSP by [freedsp](http://www.freedsp.cc)
 * 1.9 cm thick MDF
 
 Detailed specs to be published...

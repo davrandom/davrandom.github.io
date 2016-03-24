@@ -1,8 +1,0 @@
----
-layout: post
-title: ! 'iPhoto e OpenStreetMap '
-tags: []
-categories: it
----
-h2. Sembra che: "'Per il geotagging in iPhoto Apple utilizza i dati di OpenStreetMap rinunciando così a Google Maps'":http://www.hwfiles.it/news/apple-usa-i-dati-di-openstreetmap-in-iphoto_41135.html
-

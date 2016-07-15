@@ -12,4 +12,9 @@ apparently there is no such a thing as a telegram Jekyll bot yet, but an Android
 
 and tha-daaa I found MrHyde by faudroids! and this is my very first test from their Android app
 
-let's see what happens 
+![screenshot](/images/mrhyde.png)
+
+let's see what happens
+
+update: it would be cool to drag and drop stuff like links and images and get the markdown already in place... dreaming?
+

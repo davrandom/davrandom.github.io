@@ -22,7 +22,7 @@ La mia esperienza "motociclistica" è decisamente limitata, ma inizia curiosamen
 La configurazione di "viaggio" prevedeva tre comodi posti:  uno in piedi sulle pedane, il sellino (occupato dal papà) e il portapacchi posteriore (addolcito da un cuscino). Non so dire quante volte siamo andati così "per campi" e quanto lunghi fossero i nostri "viaggi", però ho ancora chiaramente questa immagine di noi tre sul Califfo della mamma. Ricordo che il cuscino posteriore aveva un colore verde molto chiaro ed era legato con uno spago multifilo, di quelli che mia nonna usava per legare le piante di pomodori ai pali di sostegno. Incredibile come piccoli dettagli rimangono incastrati nella memoria mentre si perde interamente il quadro generale.
 
 Poi fino a quattordici anni ho frequentato solo due ruote senza motore, cercando di perdermi per le stesse strade di campo in cui mi portava mio padre. Finita la terza media -non avevo ancora compiuto i fatidici 14- ho rimesso in sesto il Califfo sperando di ottenere il permesso -mai ottenuto- di metterlo effettivamente in strada. Ritorno forzato alle due ruote senza motore, che comunque mi hanno fatto vivere delle gran avventure con il gruppo di MTB orientamento di Tarcento.  A ventidue anni avevo qualche soldo da parte e sono riuscito a comprarmi una vespa ET4 125cc verde (di seconda mano). 
-Ottima, i _migliori_ 450 euro  spesi nella mia vita (cit.). 
+Ottima, i _migliori_ euri spesi nella mia vita (cit.). 
 
 Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l'aiuto di mio fratello (sia manuale che economico) abbiamo convertito da rottame a scoppiettante insetto. Questa inaffidabile due ruote mi ha sicuramente dato forti emozioni (che numeri...)  ma anche decisamente stufato delle ruote piccole e dei freni a tamburo. Nel 2011 riesco a (farmi) comprare una Yamaha Fazer FZ6 S1, ufficialmente Dory, con la quale inizio il mio percorso nel mondo motociclistico over 125cc.
 
@@ -40,7 +40,7 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 - Yamaha **XT1200Z Super Ténéré** (2011), _La Bestia_ 
   bought mid 2015 // sold XX - ~6kkm 
   [some pics](https://www.flickr.com/photos/davrandom/albums/72157663428671052)
-
+  ![la bestia](https://farm2.staticflickr.com/1569/25890290691_dbbe22e4ac.jpg)
 
 <a name="My trips"></a>
 

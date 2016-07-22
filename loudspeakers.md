@@ -43,11 +43,20 @@ It is a simple 12 cm cube (outer dimensions). The transducer is mounted from the
 The design is quite common, for example see Auratone (bigger) or Grover Notting CR-1 (same transducer size, smaller box 11 cm).
 
 ### Specs
-150 Hz - 16 kHz
-[plots to be done]
+![decent plots to be done](https://bytebucket.org/davrandom/misc_projects/raw/30d51c10abc1140003f4a449371c74b69c25cc8f/loudspeakers/zero/80dBC_2048taps_nosmooth.png)
+
+I know I shouldn't publish a plot like this for a couple of reasons:
+
+* People normally do smoothing to make their spectrum nicer (and in some areas of the spectrum it makes sense, because the window of the fourier transform has a fixed width and hence its resolution df/f it's frequency dependent).
+* People normally do things to achieve a flat spectrum: e.g. adding passive filters, try several box designs. 
+
+This is not my case, I was just curious to know if I was able to make a box and paint it, and by chance it also sounded. In the process I didn't cut any of my fingers! Unbelievable! The box is there and sounds surprisingly better than expected.
+Now... yes it could be better. Having the time to make it better, the loudspeaker would benefit from having a passive filter to lower the peak around 2kHz. Or if you have a dsp before the speaker, you can measure and fix the thing easily.
+
+Now, since this is an /ear/nest design, here you are a [link to the loudspeaker IR](https://bitbucket.org/davrandom/misc_projects/raw/30d51c10abc1140003f4a449371c74b69c25cc8f/loudspeakers/zero/80dBC_IR.wav) measured "close miking" (1m) the speaker by Xavi. Better measurements will come in the future...
 
 ### Comments
-
+(waiting for comments from my testers...)
 
 <a name="One model"></a>
 
@@ -66,3 +75,8 @@ Detailed specs to be published...
 Two way bi-amplified active speaker with DSP, in a front-vented box.
 
 Size: 22 cm W x 52 cm H x 36 cm D
+
+### Pictures
+
+
+

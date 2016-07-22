@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to run matlab from command line 
-tags: memo shit
+tags: memo tips
 category: memo
 comments: true
 

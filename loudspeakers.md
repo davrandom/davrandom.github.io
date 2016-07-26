@@ -22,6 +22,11 @@ Here I will publish my loudspeakers' designs with as much detail as possible. If
 
 The name I chose for my loudspeakers, **/ear/nest**, should explain clearly what is the philosophy: they are **Earnest**, *honest*, I will publish as much details, measurements, ... as I can, and they are possibly *good*, an "**ear nest**".
 
+<dl>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/davrandom/albums/72157671398454785" title="/ear/nest"><img src="https://c8.staticflickr.com/9/8399/28472807135_652047889c.jpg" width="500" height="281" alt="/ear/nest"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+</dl>
+
+
 <a name="Zero model"></a>
 
 ## Zero model
@@ -60,7 +65,11 @@ Now, since this is an /ear/nest design, here you are a [link to the loudspeaker 
 
 <a name="One model"></a>
 
+
+
 ## One model
+
+![preliminary picture of One model](https://c6.staticflickr.com/9/8852/28472805085_358800bc17.jpg)
 
 ### Hardware
 * MA 5.5" carbon fiber woofer (custom design), resonance at 50 Hz, 8 Ohm impedance

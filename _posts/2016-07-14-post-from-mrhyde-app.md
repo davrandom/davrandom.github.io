@@ -10,7 +10,7 @@ these days when I go home I don't really want to open another PC and start writi
 
 apparently there is no such a thing as a telegram Jekyll bot yet, but an Android app should be already there, no? let's ask Google...
 
-and tha-daaa I found MrHyde by faudroids! and this is my very first test from their Android app
+and tha-daaa I found [MrHyde](https://play.google.com/store/apps/details?id=org.faudroids.mrhyde) by faudroids! and this is my very first test from their Android app
 
 ![screenshot](/images/mrhyde.png)
 

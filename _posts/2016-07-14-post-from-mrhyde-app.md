@@ -19,3 +19,10 @@ let's see what happens
 update: it would be cool to drag and drop stuff like links and images and get the markdown already in place... dreaming?
 
 update 2: I actually opened a bug in faudroid github and they were kind enough to add a markdown cheatshett to their app. Now waiting for this fix to propagate until google Play.
+
+update 3: the fix reached Google play!
+thanks!
+
+![insert markdown](/images/markdown1.png) 
+
+![insert markdown list](/images/markdown2.png) 

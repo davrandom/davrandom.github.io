@@ -8,33 +8,33 @@ excerpt:
 
 Come la maggior parte dei post di questo sito è principalmente scritto per ricordare a me delle cose. Ma spero che possa essere in qualche modo utile anche ad altri.
 
-Qui raccolgo le camminate -di solito montane- fatte in Catalunya.
+Qui raccolgo le camminate --di solito montane-- fatte in Catalunya.
 
 
 ## 2014
 
-1. Ottobre - [Garrotxa: Volcan Santa Mar&iacute;a e Fageda](http://es.wikiloc.com/wikiloc/view.do?id=14170864)
+Ottobre - [Garrotxa: Volcan Santa Mar&iacute;a e Fageda](http://es.wikiloc.com/wikiloc/view.do?id=14170864)
  // :repeat: 13.7km  :arrow_up: 607m 
 
-2. Settembre - [da Greixer a Refugio de Sant Jordi](http://es.wikiloc.com/wikiloc/view.do?id=14170515) // :repeat: 17.4km  :arrow_up: 1485m
+Settembre - [da Greixer a Refugio de Sant Jordi](http://es.wikiloc.com/wikiloc/view.do?id=14170515) // :repeat: 17.4km  :arrow_up: 1485m
 
 
 ## 2015
 
-3. Maggio - [Bruguers - Morella - Bruguers](http://es.wikiloc.com/wikiloc/view.do?id=9830282) // :repeat: 13.2km :arrow_up: 523m
+Maggio - [Bruguers - Morella - Bruguers](http://es.wikiloc.com/wikiloc/view.do?id=9830282) // :repeat: 13.2km :arrow_up: 523m
 
-4. Giugno - [Bastiments](http://es.wikiloc.com/wikiloc/view.do?id=14167993) // :repeat: 9.0km :arrow_up: 2714m
+Giugno - [Bastiments](http://es.wikiloc.com/wikiloc/view.do?id=14167993) // :repeat: 9.0km :arrow_up: 2714m
 
-5. Luglio - [Nuria - Puigmal - Nuria](http://es.wikiloc.com/wikiloc/view.do?id=14168178) // :repeat: 9.8km :arrow_up: 2754m
+Luglio - [Nuria - Puigmal - Nuria](http://es.wikiloc.com/wikiloc/view.do?id=14168178) // :repeat: 9.8km :arrow_up: 2754m
 
-6. Novembre - [Hospital de Sangre](http://es.wikiloc.com/wikiloc/view.do?id=14168244) // :repeat: 13.0km :arrow_up: 946m
+Novembre - [Hospital de Sangre](http://es.wikiloc.com/wikiloc/view.do?id=14168244) // :repeat: 13.0km :arrow_up: 946m
 
 ## 2016
 
-7. Febbraio - [da Sant Vicent de Castellet a Sant Jaume de Vallhonesta](http://es.wikiloc.com/wikiloc/view.do?id=14168360) // :repeat: 11.5km :arrow_up: 354m 
+Febbraio - [da Sant Vicent de Castellet a Sant Jaume de Vallhonesta](http://es.wikiloc.com/wikiloc/view.do?id=14168360) // :repeat: 11.5km :arrow_up: 354m 
 
-8. Maggio - [da Olesa de Bonesvalls a La Mola del Garraf](http://es.wikiloc.com/wikiloc/view.do?id=14168415) // :repeat: 10.5km :arrow_up: 445m
+Maggio - [da Olesa de Bonesvalls a La Mola del Garraf](http://es.wikiloc.com/wikiloc/view.do?id=14168415) // :repeat: 10.5km :arrow_up: 445m
 
-9. Luglio - [da Presa de Cavallers a Refugio Ventosa](http://es.wikiloc.com/wikiloc/view.do?id=14168444) // :repeat: 14.5 :arrow_up: 2037m
+Luglio - [da Presa de Cavallers a Refugio Ventosa](http://es.wikiloc.com/wikiloc/view.do?id=14168444) // :repeat: 14.5km :arrow_up: 2037m
 
 

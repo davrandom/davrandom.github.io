@@ -15,7 +15,7 @@ kramdown:
     input: GFM
 
 highlighter: rouge
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jemoji]
 paginate: 5
 
 

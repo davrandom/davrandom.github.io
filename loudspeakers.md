@@ -88,4 +88,14 @@ Size: 22 cm W x 52 cm H x 36 cm D
 ### Pictures
 
 
+### Electronics and related parts
 
+#### Supports for DSP and amplifier
+
+![DSP and amplifier supports](https://farm6.staticflickr.com/5708/30495918136_f4bfd6b863_b.jpg)
+
+[(Link to others sizes of the same image.)](https://flic.kr/p/NsPy11)
+
+The picture shows the freedsp classic board, the ice amplifier and two black supports. The supports are designed in openscad and printed with a BCN3D+ printer. The scad and stl are available here (put link).
+
+If you don't have a 3D printer, I can print them for you. 

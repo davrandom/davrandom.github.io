@@ -96,6 +96,9 @@ Size: 22 cm W x 52 cm H x 36 cm D
 
 [(Link to others sizes of the same image.)](https://flic.kr/p/NsPy11)
 
-The picture shows the freedsp classic board, the ice amplifier and two black supports. The supports are designed in openscad and printed with a BCN3D+ printer. The scad and stl are available here (put link).
+The picture shows the freedsp classic board, the ice amplifier and two black supports. The supports are designed in openscad and printed with a BCN3D+ printer. The gcode and stl are available here:
+
+* freedsp support [gcode](https://bitbucket.org/davrandom/misc_projects/src/02b306a8e2cca679cd5d43be955d4e898e9f9679/3D_scad/freedsp_fromscad.gcode) and [stl](https://bitbucket.org/davrandom/misc_projects/src/02b306a8e2cca679cd5d43be955d4e898e9f9679/3D_scad/freedsp_fromscad.stl)
+* ice aplifier support [gcode](https://bitbucket.org/davrandom/misc_projects/src/02b306a8e2cca679cd5d43be955d4e898e9f9679/3D_scad/amplifier.gcode) and [stl](https://bitbucket.org/davrandom/misc_projects/src/02b306a8e2cca679cd5d43be955d4e898e9f9679/3D_scad/amplifier.stl)
 
 If you don't have a 3D printer, I can print them for you. 

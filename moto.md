@@ -52,8 +52,8 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
 4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
 5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
-6. Sardinia (north)
-
+6. Sardinia (north) - September 2015
+7. Andalucía - August 2016
 
 <a name="My equipment"></a>
 

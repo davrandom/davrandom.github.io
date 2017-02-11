@@ -52,7 +52,9 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
 4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
 5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
-6. Sardinia (north)
+6. Sardinia (north) (2015)
+7. Mallorca (2016) while coming back to Bcn on the ferry I wrote a very nice article... that I lost. Great.
+8. Andalucia (2016)
 
 
 <a name="My equipment"></a>
@@ -61,7 +63,8 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 
 ### Clothes and helmet
 
-| Clover jacket        | `+++` | 
+| Clover jacket        | `+++` |
+| Alpinestars jacket   | `+++` |
 | HJC helmet           | `++`  | 
 | Five gloves (summer) | `+++` | 
 | Held summer gloves   | `+`   | 

@@ -12,7 +12,7 @@ image: "garage.jpg"
 1. [Motos](#My motos)
 2. [Trips](#My trips)
 3. [Equipment](#My equipment)
-
+4. [Must see places](#Must see)
 
 <a name="My motos"></a>
 
@@ -46,14 +46,17 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 
 ## My trips
 
-1. Trieste - Dubrovnik and back, with Andrea 
+1. Trieste - Dubrovnik and back, with Andrea in 2011, 1600km 
 (maps: [day1](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.krcDA5KvbldM&usp=sharing),  [day2](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k0OmdCDj7xfQ&usp=sharing),  [day3](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kTSRMMTbDvfQ&usp=sharing),  [day4](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7wlrqPBMF1M&usp=sharing),  [day5](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kYSl1OLDxuJ0&usp=sharing) )
-2. testing Dory: [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
-3. Viaggio in solitaria: [the plan (article)](/blog/viaggio-plan/) and [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
-4. Friuli - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
-5. Barcelona - Pireneos - Paìs Vasco - Barcelona [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
-6. Sardinia (north) - September 2015
-7. Andalucía - August 2016
+2. Testing Dory (2012): [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
+3. Trip around Europe (2012) 4300km: 
+[the plan (article)](/blog/viaggio-plan/) and 
+[the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
+and [some pictures](https://www.flickr.com/photos/davrandom/albums/72157632996613797)
+4. Moving from Friuli to Barcelona (2012) 1300km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
+5. Barcelona - Pireneos - Paìs Vasco - Barcelona (2013) 1750km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) and [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
+6. Sardinia (north) - September 2015, 800km the [map](https://drive.google.com/open?id=1PtYE0xU5eiwMSlryw9wF9azdcK4&usp=sharing)
+7. Andalucía - August 2016, 3500km the [map](https://drive.google.com/open?id=1Y7tBl62_cruWRZlsrkB7LHXR_NA&usp=sharing)
 8. Mallorca (2016) while coming back to Bcn on the ferry I wrote a very nice article... that I lost. Great.
 
 
@@ -63,10 +66,11 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 
 ### Clothes and helmet
 
-| Clover jacket        | `+++` |
+| Clover jacket F3     | `+++` |
 | Alpinestars jacket   | `+++` |
-| HJC helmet           | `++`  | 
-| Five gloves (summer) | `+++` | 
+| HJC helmet HQ1       | `++`  | 
+| HJC helmet RPHA ST   | new  | 
+| Five gloves (summer) [got robbed] | `+++` | 
 | Held summer gloves   | `+`   | 
 | Winter gloves        | `++`  | 
 | Rain trousers rev'it | `+`   | 
@@ -88,8 +92,9 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 | `---`| run away                               |
 
 
+<a name="Must see"></a>
 
-## Advices
+## Must see places
 
 - [must see in Friuli](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kH3Z7fzAwIbU&usp=sharing)
 - [must see in Catalunya](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kW_hRy82ZUik&usp=sharing)

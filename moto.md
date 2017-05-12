@@ -46,19 +46,19 @@ Qualche anno dopo ho avuto una breve avventura con una PX125E del 1980 che con l
 
 ## My trips
 
-1. Trieste - Dubrovnik and back, with Andrea in 2011, 1600km 
+1. *In viaggio con Andrea*: **Trieste - Dubrovnik** and back (2011) 1600km \\
 (maps: [day1](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.krcDA5KvbldM&usp=sharing),  [day2](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k0OmdCDj7xfQ&usp=sharing),  [day3](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kTSRMMTbDvfQ&usp=sharing),  [day4](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7wlrqPBMF1M&usp=sharing),  [day5](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kYSl1OLDxuJ0&usp=sharing) )
-2. Testing Dory (2012): [Trieste - Rovinj (article)](/blog/test-drive-rovinj-rovigno/)
-3. Trip around Europe (2012) 4300km: 
+2. *In viaggio con Manu*: Testing Dory (2012): [**Trieste - Rovinj** (article)](/blog/test-drive-rovinj-rovigno/)
+3. *Solitario*: Trip around **Europe** (2012) 4300km: \\
 [the plan (article)](/blog/viaggio-plan/) and 
 [the actual trip (map)](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.k7tJx_B4_9Lk&usp=sharing)
 and [some pictures](https://www.flickr.com/photos/davrandom/albums/72157632996613797)
-4. Moving from Friuli to Barcelona (2012) 1300km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
-5. Barcelona - Pireneos - Paìs Vasco - Barcelona (2013) 1750km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) and [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
-6. Sardinia (north) - September 2015, 800km the [map](https://drive.google.com/open?id=1PtYE0xU5eiwMSlryw9wF9azdcK4&usp=sharing)
-7. Andalucía - August 2016, 3500km the [map](https://drive.google.com/open?id=1Y7tBl62_cruWRZlsrkB7LHXR_NA&usp=sharing)
-8. Mallorca (2016) while coming back to Bcn on the ferry I wrote a very nice article... that I lost. Great.
-
+4. Moving from **Friuli** to **Barcelona** (2012) 1300km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kAvbt1n0n4K4&usp=sharing)
+5. *In viaggio con Andrea*: **Barcelona** - Pireneos - **Paìs Vasco** - Barcelona (2013) 1750km the [map](https://www.google.com/maps/d/edit?mid=z7cYfh2A3jYc.kmQr7dHuyPbk&usp=sharing) and [some pics](https://goo.gl/photos/XEB2KJVYehzXmKRa7)
+6. *In viaggio con Manu*: **Sardinia**  (September 2015) 800km the [map](https://drive.google.com/open?id=1PtYE0xU5eiwMSlryw9wF9azdcK4&usp=sharing)
+7. *In viagio con Manu*: **Andalucía** (August 2016) 3500km the [map](https://drive.google.com/open?id=1Y7tBl62_cruWRZlsrkB7LHXR_NA&usp=sharing)
+8. *In viaggio con Andrea*: **Mallorca** (November 2016) while coming back to Bcn on the ferry I wrote a very nice article... that I lost. Great.
+9. **Rider1000** in the 500km version (May 2017) 
 
 <a name="My equipment"></a>
 

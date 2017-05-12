@@ -4,7 +4,7 @@ title: Latest Cern Root 5.34.03 package for Ubuntu/Debian 64bits
 tags: []
 categories: en software opensource data analysis
 ---
-Latest Cern Root 5.34.03 package for Ubuntu/Debian 64bits is available for download in my [sourceforge project](https://sourceforge.net/projects/cernrootdebs/) with a nice and very helpful page :) just [one click from here.](http://{{) root\_url }}/images/projects/27/root-packages-for-debian-and-ubuntu
+Latest Cern Root 5.34.03 package for Ubuntu/Debian 64bits is available for download in my [sourceforge project](https://sourceforge.net/projects/cernrootdebs/) with a nice and very helpful page :) just [one click from here.]({{ root_url }}/images/projects/27/root-packages-for-debian-and-ubuntu
 
 Check it out! [(direct download)](http://sourceforge.net/projects/cernrootdebs/files/latest/download)
 

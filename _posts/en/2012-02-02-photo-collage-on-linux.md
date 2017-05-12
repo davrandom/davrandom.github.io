@@ -6,7 +6,7 @@ categories: en photo collage linux
 ---
 I was struggling searching for a software that made a collage from my pictures, mimicking a photo… and today I succeeded:
 
-![]({{ root_url }}/images/5t.jpg?1328191695):{{ root\_url }}/images/5.jpg
+![]({{ root_url }}/images/5.jpg)
 
 It’s not really something to be proud but it’s indeed a starting point.
 The instructions are well described [here](http://linuxaria.com/article/photo-collage-mosaic-linux?lang=en) .

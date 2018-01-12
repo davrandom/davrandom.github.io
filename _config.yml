@@ -34,7 +34,7 @@ navigation:
    url: /tags/index.html
  
 social:
-    twitter: dav_random
+#    twitter: dav_random
     github:  davrandom
     
 disqus: davrandom

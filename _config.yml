@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 tag_permalink_style: pretty
-url: "http://scaini.org" # the base hostname & protocol for your site
+url: "davrandom.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown

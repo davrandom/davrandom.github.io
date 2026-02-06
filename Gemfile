@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
-require 'json'
-require 'open-uri'
-versions = JSON.parse(open('https://pages.github.com/versions.json').read)
+# Pin to a specific version for reproducible builds
+# Update regularly by checking: https://pages.github.com/versions/
+gem 'github-pages', '~> 232', group: :jekyll_plugins
 
-gem 'github-pages', versions['github-pages']
+# Security updates - update these manually or via Dependabot
+gem 'nokogiri', '>= 1.16.0'
+gem 'activesupport', '>= 7.0.8.6'
+gem 'rexml', '>= 3.3.9'
 

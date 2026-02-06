@@ -237,6 +237,12 @@ paginate_path: "blog/page:num/"
 
 Dependabot is configured to automatically update Bundler dependencies weekly. Review and merge Dependabot PRs regularly.
 
+**Security Note**: See `SECURITY_UPDATE_GUIDE.md` for detailed information about:
+- Current vulnerability status
+- How to update dependencies to fix security issues
+- Compatibility with GitHub Pages
+- Post-update testing checklist
+
 ## Git Workflow
 
 ### Branch Strategy

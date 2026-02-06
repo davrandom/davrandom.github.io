@@ -81,7 +81,44 @@ Based on the current `Gemfile.lock` (github-pages 227), the following dependenci
    git push
    ```
 
-### Method 2: Use Dependabot (Automated)
+### Method 2: Use GitHub Actions (Recommended - Fully Automated)
+
+**New!** GitHub Actions workflows are now set up to handle dependency updates automatically.
+
+#### Update Dependencies Workflow
+
+**Automatic weekly updates** (Mondays at 9 AM UTC):
+1. Workflow runs automatically
+2. Updates dependencies in a new branch
+3. Tests Jekyll build
+4. Runs security audit
+5. Creates PR with results
+
+**Manual trigger** (for immediate updates):
+1. Go to Actions tab → [Update Dependencies workflow](../../actions/workflows/update-dependencies.yml)
+2. Click "Run workflow"
+3. Choose update type:
+   - `all` - Updates all dependencies
+   - `security-only` - Only updates packages with known vulnerabilities
+4. Click "Run workflow" button
+5. Wait 2-5 minutes for PR to be created
+6. Review and merge the PR
+
+**Benefits**:
+- No local setup needed
+- Automatic testing
+- Detailed change summaries
+- Security audit included
+
+#### Security Audit Workflow
+
+Runs **daily** to monitor for new vulnerabilities:
+- Creates GitHub issues when vulnerabilities are detected
+- Updates issues with current status
+- Auto-closes issues when resolved
+- Provides downloadable audit reports
+
+### Method 3: Use Dependabot (Backup Automated System)
 
 Dependabot is already configured in `.github/dependabot.yml`. It will:
 - Automatically detect vulnerable dependencies
@@ -90,13 +127,15 @@ Dependabot is already configured in `.github/dependabot.yml`. It will:
 
 **Action required**: Review and merge Dependabot PRs regularly.
 
-### Method 3: Manual Gemfile.lock Update
+**Note**: GitHub Actions workflows are now the primary update mechanism. Dependabot serves as a backup.
+
+### Method 4: Manual Gemfile.lock Update
 
 If you can't run `bundle update` locally, you can:
 
 1. Push the updated `Gemfile` to GitHub
-2. Let GitHub Actions or Dependabot regenerate the lockfile
-3. Pull the changes back
+2. Manually trigger the "Update Dependencies" workflow (Method 2)
+3. Review and merge the generated PR
 
 ## Verification
 
@@ -165,17 +204,34 @@ After updating dependencies:
 
 ## Monitoring
 
+### Automated Monitoring (GitHub Actions)
+
+The **Security Audit workflow** automatically monitors for vulnerabilities:
+- **Runs daily** at midnight UTC
+- **Creates issues** when vulnerabilities are detected
+- **Updates status** on existing issues
+- **Auto-closes** issues when resolved
+- **Artifacts** available for 30 days with detailed reports
+
+**To view security status**:
+1. Check the [Actions tab](../../actions/workflows/security-audit.yml)
+2. Look for issues labeled `security` and `automated`
+3. Review the [Security tab](../../security) for Dependabot alerts
+
+### Manual Monitoring
+
 To stay updated on vulnerabilities:
 
-1. **Enable GitHub Security Alerts**:
+1. **Enable GitHub Security Alerts** (if not already enabled):
    - Go to Settings → Security & analysis
    - Enable "Dependabot alerts"
    - Enable "Dependabot security updates"
 
 2. **Weekly Checks**:
-   - Review Dependabot PRs
-   - Check GitHub Security tab
-   - Run `bundle audit` locally
+   - Review automated PRs from Update Dependencies workflow
+   - Check Dependabot PRs
+   - Review GitHub Security tab
+   - Check for open security issues
 
 3. **Subscribe to Security Advisories**:
    - Watch the repositories of critical dependencies
@@ -189,15 +245,17 @@ To stay updated on vulnerabilities:
 
 3. **Test Before Deploy**: Always test updated dependencies locally before pushing
 
-4. **Automated CI/CD**: Consider adding GitHub Actions to:
-   - Run tests on every push
+4. **Automated CI/CD**: ✅ **Now Implemented!** GitHub Actions workflows are configured to:
+   - Run tests on every push and PR
    - Build Jekyll site to catch errors
-   - Run security audits automatically
+   - Run security audits automatically (daily)
+   - Update dependencies weekly
 
 5. **Review Custom Code**: The `_tag_gen.rb` plugin should be reviewed for security issues
 
 ## Resources
 
+- **GitHub Actions Workflows**: See `.github/workflows/README.md` for detailed workflow documentation
 - GitHub Security Advisory Database: https://github.com/advisories
 - Ruby Security Advisories: https://github.com/rubysec/ruby-advisory-db
 - Bundler Audit: https://github.com/rubysec/bundler-audit

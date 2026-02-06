@@ -1,0 +1,205 @@
+name: Update Dependencies
+
+on:
+  # Run weekly on Mondays at 9:00 AM UTC
+  schedule:
+    - cron: '0 9 * * 1'
+
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
+    inputs:
+      update_type:
+        description: 'Type of update'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - security-only
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: false
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Create update branch
+        id: branch
+        run: |
+          BRANCH_NAME="dependencies/update-${{ steps.date.outputs.date }}"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          git checkout -b "$BRANCH_NAME"
+
+      - name: Update dependencies
+        id: update
+        run: |
+          echo "Updating dependencies..."
+
+          # Install current dependencies first
+          bundle install
+
+          # Update all dependencies or just security fixes
+          if [ "${{ inputs.update_type }}" == "security-only" ] || [ "${{ github.event_name }}" == "schedule" ]; then
+            echo "Running security updates only..."
+            # Try to update known vulnerable gems
+            bundle update nokogiri activesupport rexml kramdown addressable commonmarker github-pages || true
+          else
+            echo "Updating all dependencies..."
+            bundle update --all
+          fi
+
+          # Check if there are changes
+          if git diff --quiet Gemfile.lock; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No dependency updates available"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Dependencies were updated"
+          fi
+
+      - name: Get dependency changes summary
+        if: steps.update.outputs.changed == 'true'
+        id: summary
+        run: |
+          # Extract version changes from Gemfile.lock diff
+          echo "## Dependency Updates" > changes.md
+          echo "" >> changes.md
+
+          # Get list of updated gems
+          git diff Gemfile.lock | grep -E "^\+\s+\w" | sed 's/^+//' | head -20 >> changes.md || echo "See full diff for details" >> changes.md
+
+          # Store as output
+          CHANGES=$(cat changes.md)
+          echo "changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run Jekyll build test
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          echo "Testing Jekyll build with updated dependencies..."
+          bundle exec jekyll build --verbose
+
+          if [ $? -eq 0 ]; then
+            echo "✅ Jekyll build successful"
+          else
+            echo "❌ Jekyll build failed"
+            exit 1
+          fi
+
+      - name: Check for vulnerabilities
+        if: steps.update.outputs.changed == 'true'
+        id: audit
+        continue-on-error: true
+        run: |
+          gem install bundler-audit
+          bundle audit check --update
+
+          if [ $? -eq 0 ]; then
+            echo "audit_status=✅ No known vulnerabilities" >> $GITHUB_OUTPUT
+          else
+            echo "audit_status=⚠️  Some vulnerabilities may remain" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          git add Gemfile.lock
+          git commit -m "Update dependencies - ${{ steps.date.outputs.date }}
+
+          Automated dependency update via GitHub Actions.
+
+          ${{ steps.audit.outputs.audit_status }}
+
+          Changes:
+          - Updated Gemfile.lock with latest compatible versions
+          - Tested with Jekyll build: ✅ Passed
+
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Push changes
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          git push origin ${{ steps.branch.outputs.branch_name }}
+
+      - name: Create Pull Request
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.branch.outputs.branch_name }}
+          base: master
+          title: "⬆️ Update dependencies - ${{ steps.date.outputs.date }}"
+          body: |
+            ## 🔄 Automated Dependency Update
+
+            This PR updates project dependencies to their latest compatible versions.
+
+            ### 📊 Status
+
+            - ✅ Jekyll build: **Passed**
+            - ${{ steps.audit.outputs.audit_status }}
+            - 📅 Update date: ${{ steps.date.outputs.date }}
+            - 🤖 Triggered by: ${{ github.event_name }}
+
+            ### 📝 Changes
+
+            ${{ steps.summary.outputs.changes }}
+
+            ### 🧪 Testing
+
+            The following checks have been performed:
+            - [x] Bundle install successful
+            - [x] Jekyll build completes without errors
+            - [x] Security audit completed
+
+            ### 📚 Review Guide
+
+            1. Check the diff in `Gemfile.lock` for any major version changes
+            2. Review the build logs: [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            3. Test locally if needed:
+               ```bash
+               git fetch origin ${{ steps.branch.outputs.branch_name }}
+               git checkout ${{ steps.branch.outputs.branch_name }}
+               bundle install
+               bundle exec jekyll serve
+               ```
+            4. Merge when ready
+
+            ---
+
+            For more information, see [SECURITY_UPDATE_GUIDE.md](SECURITY_UPDATE_GUIDE.md)
+
+            <sub>🤖 This PR was automatically generated by GitHub Actions</sub>
+          labels: dependencies,automated
+          draft: false
+
+      - name: Comment on issue if no changes
+        if: steps.update.outputs.changed == 'false'
+        run: |
+          echo "No dependency updates were needed. All dependencies are up to date."
+          echo "This is expected when dependencies were recently updated."

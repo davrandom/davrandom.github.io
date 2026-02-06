@@ -215,6 +215,15 @@ paginate_path: "blog/page:num/"
 
 ## Building & Testing
 
+### Automated Testing
+
+GitHub Actions workflows automatically test changes:
+- **Jekyll Build Test**: Runs on all PRs and pushes to master
+- **Security Audit**: Runs daily to check for vulnerabilities
+- **Dependency Updates**: Runs weekly to keep dependencies current
+
+See `.github/workflows/README.md` for details on each workflow.
+
 ### Before Committing Changes
 
 1. **Build locally** to check for errors:
@@ -233,15 +242,32 @@ paginate_path: "blog/page:num/"
    - Check that all image references are correct
    - Test internal links
 
+**Note**: The Jekyll Build Test workflow will automatically check your changes when you create a PR.
+
 ### Dependency Updates
 
-Dependabot is configured to automatically update Bundler dependencies weekly. Review and merge Dependabot PRs regularly.
+**Automated Updates**: GitHub Actions workflows handle dependency updates:
+- **Update Dependencies workflow**: Runs weekly (Mondays 9 AM UTC)
+  - Automatically updates dependencies
+  - Tests Jekyll build
+  - Creates PR with changes
+  - Can be triggered manually for immediate updates
+
+- **Security Audit workflow**: Runs daily
+  - Monitors for vulnerabilities
+  - Creates issues when found
+  - Auto-closes when resolved
+
+**Dependabot**: Also configured for weekly updates (backup system)
+
+**Manual Updates**: Run `bundle update` locally when needed
 
 **Security Note**: See `SECURITY_UPDATE_GUIDE.md` for detailed information about:
 - Current vulnerability status
 - How to update dependencies to fix security issues
 - Compatibility with GitHub Pages
 - Post-update testing checklist
+- GitHub Actions workflows usage
 
 ## Git Workflow
 

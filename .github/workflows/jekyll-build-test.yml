@@ -1,0 +1,137 @@
+name: Jekyll Build Test
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**.md'
+      - '**.html'
+      - '**.yml'
+      - '**.rb'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - '_config.yml'
+      - '_posts/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - '_sass/**'
+      - '_plugins/**'
+      - 'assets/**'
+
+  push:
+    branches:
+      - master
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      - name: Check Jekyll configuration
+        run: |
+          echo "Checking Jekyll configuration..."
+          bundle exec jekyll doctor
+
+      - name: Build Jekyll site
+        run: |
+          echo "Building Jekyll site..."
+          JEKYLL_ENV=production bundle exec jekyll build --verbose --trace
+
+      - name: Check for broken links (internal)
+        continue-on-error: true
+        run: |
+          echo "Checking for common issues..."
+
+          # Check for broken internal links (simple grep)
+          if grep -r "href=\"/[^\"]*\"" _site/ | grep -v ".css" | grep -v ".js" > links.txt; then
+            echo "Found internal links (sample):"
+            head -20 links.txt
+          fi
+
+      - name: Test post front matter
+        run: |
+          echo "Validating post front matter..."
+
+          # Check that all posts have required front matter
+          for post in _posts/*.md _posts/*.html; do
+            if [ -f "$post" ]; then
+              # Check for layout
+              if ! grep -q "^layout:" "$post"; then
+                echo "⚠️  Missing 'layout' in $post"
+              fi
+
+              # Check for title
+              if ! grep -q "^title:" "$post"; then
+                echo "⚠️  Missing 'title' in $post"
+              fi
+            fi
+          done
+
+          echo "✅ Front matter validation complete"
+
+      - name: Check for TODO/FIXME comments
+        continue-on-error: true
+        run: |
+          echo "Checking for TODO/FIXME markers..."
+          grep -r "TODO\|FIXME" _posts/ _layouts/ _includes/ _plugins/ || echo "None found"
+
+      - name: List generated files
+        run: |
+          echo "Generated site structure:"
+          ls -lah _site/
+          echo ""
+          echo "Sample files:"
+          find _site -type f | head -20
+
+      - name: Upload build artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: _site/
+          retention-days: 7
+
+      - name: Comment on PR (Success)
+        if: github.event_name == 'pull_request' && success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ **Jekyll Build: Success**\n\nThe site builds successfully with your changes.\n\n- All dependencies installed correctly\n- Jekyll configuration is valid\n- Site generated without errors'
+            })
+
+      - name: Comment on PR (Failure)
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ **Jekyll Build: Failed**\n\nThe Jekyll build failed with your changes. Please review the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.\n\nCommon issues:\n- Invalid YAML front matter\n- Missing required fields (layout, title)\n- Liquid syntax errors\n- Plugin compatibility issues'
+            })

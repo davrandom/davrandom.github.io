@@ -1,11 +1,8 @@
 source 'https://rubygems.org'
 
-# Pin to a specific version for reproducible builds
-# Update regularly by checking: https://pages.github.com/versions/
-gem 'github-pages', '~> 232', group: :jekyll_plugins
-
-# Security updates - update these manually or via Dependabot
-gem 'nokogiri', '>= 1.16.0'
-gem 'activesupport', '>= 7.0.8.6'
-gem 'rexml', '>= 3.3.9'
+# Use github-pages gem - version managed by Gemfile.lock
+# Note: github-pages doesn't support Ruby 4.x yet
+# GitHub Actions uses Ruby 3.2 which supports latest versions
+# For local development with Ruby 4.x, use existing lockfile
+gem 'github-pages', group: :jekyll_plugins
 

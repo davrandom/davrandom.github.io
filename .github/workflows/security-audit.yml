@@ -1,0 +1,206 @@
+name: Security Audit
+
+on:
+  # Run daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Run on pushes to master that affect dependencies
+  push:
+    branches:
+      - master
+    paths:
+      - 'Gemfile'
+      - 'Gemfile.lock'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  security-events: write
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install bundler-audit
+        run: |
+          gem install bundler-audit
+
+      - name: Update vulnerability database
+        run: |
+          bundle audit update
+
+      - name: Run security audit
+        id: audit
+        continue-on-error: true
+        run: |
+          echo "Running security audit..."
+          bundle audit check --verbose > audit_results.txt 2>&1
+
+          AUDIT_EXIT_CODE=$?
+
+          # Display results
+          cat audit_results.txt
+
+          # Count vulnerabilities
+          VULN_COUNT=$(grep -c "Name:" audit_results.txt || echo "0")
+
+          echo "exit_code=$AUDIT_EXIT_CODE" >> $GITHUB_OUTPUT
+          echo "vuln_count=$VULN_COUNT" >> $GITHUB_OUTPUT
+
+          # Extract details if vulnerabilities found
+          if [ $AUDIT_EXIT_CODE -ne 0 ]; then
+            echo "⚠️  Found $VULN_COUNT vulnerability/vulnerabilities"
+
+            # Extract first few vulnerabilities for summary
+            grep -A 5 "Name:" audit_results.txt | head -30 > vuln_summary.txt || echo "See full log" > vuln_summary.txt
+
+            echo "summary<<EOF" >> $GITHUB_OUTPUT
+            cat vuln_summary.txt >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "✅ No vulnerabilities found"
+            echo "summary=No known vulnerabilities detected" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check dependency versions
+        run: |
+          echo "## Current Dependency Versions"
+          bundle list | head -30
+
+      - name: Create issue for vulnerabilities
+        if: steps.audit.outputs.exit_code != '0' && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const vulnCount = '${{ steps.audit.outputs.vuln_count }}';
+            const summary = `${{ steps.audit.outputs.summary }}`;
+
+            // Check if there's already an open security issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security,automated'
+            });
+
+            const existingIssue = issues.data.find(issue =>
+              issue.title.includes('Security Vulnerabilities Detected')
+            );
+
+            const issueBody = `## 🔒 Security Vulnerabilities Detected
+
+            The automated security audit has detected **${vulnCount}** vulnerability/vulnerabilities in project dependencies.
+
+            ### 📊 Summary
+
+            \`\`\`
+            ${summary}
+            \`\`\`
+
+            ### 🔧 How to Fix
+
+            1. Review the [full audit results](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})
+            2. Update affected dependencies:
+               \`\`\`bash
+               bundle update [gem-name]
+               \`\`\`
+            3. Test the changes:
+               \`\`\`bash
+               bundle exec jekyll build
+               bundle exec jekyll serve
+               \`\`\`
+            4. Commit and push the updated \`Gemfile.lock\`
+
+            Alternatively, you can trigger the automated dependency update workflow:
+            1. Go to [Actions > Update Dependencies](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/workflows/update-dependencies.yml)
+            2. Click "Run workflow"
+            3. Select "security-only" update type
+            4. Review and merge the generated PR
+
+            ### 📚 Resources
+
+            - See [SECURITY_UPDATE_GUIDE.md](SECURITY_UPDATE_GUIDE.md) for detailed instructions
+            - Check [GitHub Security Advisories](https://github.com/${context.repo.owner}/${context.repo.repo}/security/dependabot)
+
+            ---
+
+            <sub>🤖 Detected by automated security audit on ${new Date().toISOString().split('T')[0]}</sub>
+            <sub>This issue will auto-close when vulnerabilities are resolved</sub>`;
+
+            if (existingIssue) {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: `### 🔄 Security Audit Update\n\nStill detecting **${vulnCount}** vulnerability/vulnerabilities as of ${new Date().toISOString().split('T')[0]}.\n\nSee [latest run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`
+              });
+            } else {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🔒 Security Vulnerabilities Detected',
+                body: issueBody,
+                labels: ['security', 'automated', 'dependencies']
+              });
+            }
+
+      - name: Close security issues if resolved
+        if: steps.audit.outputs.exit_code == '0' && github.event_name == 'push'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Find open security issues
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security,automated'
+            });
+
+            for (const issue of issues.data) {
+              if (issue.title.includes('Security Vulnerabilities Detected')) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: '✅ **Vulnerabilities Resolved**\n\nThe security audit now passes. Closing this issue.\n\nVerified by: ' + context.payload.head_commit.message
+                });
+
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: 'closed'
+                });
+              }
+            }
+
+      - name: Upload audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-audit-results
+          path: audit_results.txt
+          retention-days: 30
+
+      - name: Set job status
+        if: steps.audit.outputs.exit_code != '0'
+        run: |
+          echo "::warning::Security vulnerabilities detected. Please review and update dependencies."
+          exit 0  # Don't fail the workflow, just warn

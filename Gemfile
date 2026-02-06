@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-require 'json'
-require 'open-uri'
-versions = JSON.parse(open('https://pages.github.com/versions.json').read)
-
-gem 'github-pages', versions['github-pages']
+# Use github-pages gem - version managed by Gemfile.lock
+# Note: github-pages doesn't support Ruby 4.x yet
+# GitHub Actions uses Ruby 3.2 which supports latest versions
+# For local development with Ruby 4.x, use existing lockfile
+gem 'github-pages', group: :jekyll_plugins
 

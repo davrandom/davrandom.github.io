@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>CLAUDE.md - AI Assistant Guide for davrandom.github.io</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="/dav/random" href="https://davrandom.github.io/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://davrandom.github.io/CLAUDE/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+    
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">/dav/random</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about/index.html">About</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/moto/index.html">Moto</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/loudspeakers/index.html">Loudspeakers</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/archive/index.html">Archive</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/tags/index.html">Tags</a>
+                 </li> 
+                 
+               
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">CLAUDE.md - AI Assistant Guide for davrandom.github.io</h1>
+  </header>
+
+  <article class="post-content">
+    <h1 id="claudemd---ai-assistant-guide-for-davrandomgithubio">CLAUDE.md - AI Assistant Guide for davrandom.github.io</h1>
+
+<p>This document provides comprehensive guidance for AI assistants working with this codebase.</p>
+
+<h2 id="project-overview">Project Overview</h2>
+
+<p>This is a personal blog and portfolio website built with Jekyll and hosted on GitHub Pages. The site belongs to Davide Scaini and covers topics including programming, physics, acoustics, motorcycle travels, and DIY projects.</p>
+
+<p><strong>Key Technologies:</strong></p>
+<ul>
+  <li>Jekyll static site generator (GitHub Pages compatible)</li>
+  <li>Ruby/Bundler for dependency management</li>
+  <li>Kramdown for Markdown processing with GFM (GitHub Flavored Markdown) input</li>
+  <li>Rouge for syntax highlighting</li>
+  <li>Sass for CSS preprocessing</li>
+  <li>Liquid templating engine</li>
+</ul>
+
+<p><strong>Site URL:</strong> davrandom.github.io</p>
+
+<h2 id="repository-structure">Repository Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>davrandom.github.io/
+├── _config.yml              # Jekyll configuration (site settings, navigation, plugins)
+├── Gemfile                  # Ruby dependencies (uses github-pages gem)
+├── Gemfile.lock             # Locked dependency versions
+├── _posts/                  # Blog posts (dated files: YYYY-MM-DD-title.{md,html})
+│   └── en/                  # English language posts subdirectory
+├── _drafts/                 # Draft posts (not published)
+│   └── mydsmv_backup/       # Backup directory
+├── _layouts/                # Page layouts
+│   ├── default.html         # Base layout template
+│   ├── post.html            # Blog post layout
+│   ├── page.html            # Simple page layout
+│   ├── page_w_picture.html  # Page layout with featured image
+│   └── tag_index.html       # Tag archive page layout
+├── _includes/               # Reusable components
+│   ├── head.html            # HTML head section
+│   ├── header.html          # Site header/navigation
+│   ├── footer.html          # Site footer
+│   ├── scripts.html         # JavaScript includes
+│   ├── tagsforpost.html     # Tag display component
+│   ├── disqus.html          # Comments integration
+│   └── google_analytics.html # Analytics tracking
+├── _sass/                   # Sass partials
+│   ├── _base.scss           # Base styles
+│   ├── _layout.scss         # Layout styles
+│   └── _syntax-highlighting.scss # Code syntax highlighting
+├── _plugins/                # Jekyll plugins (Ruby)
+│   └── _tag_gen.rb          # Tag page generator
+├── assets/                  # Static assets
+│   ├── css/                 # Compiled CSS
+│   ├── js/                  # JavaScript files
+│   ├── img/                 # Image assets
+│   └── scss/                # Additional Sass files
+├── css/                     # Main CSS directory
+├── images/                  # Site images (used in posts/pages)
+├── index.html               # Homepage (recent posts with pagination)
+├── about.md                 # About page
+├── archive.md               # Post archive page
+├── tag.md                   # Tags index page
+├── moto.md                  # Motorcycle-related content page
+├── loudspeakers.md          # Speaker/audio-related content page
+├── feed.xml                 # RSS/Atom feed
+├── config.rb                # Compass configuration (if used)
+└── .github/
+    └── dependabot.yml       # Automated dependency updates (Bundler)
+</code></pre></div></div>
+
+<h2 id="development-workflow">Development Workflow</h2>
+
+<h3 id="local-development-setup">Local Development Setup</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install dependencies</span>
+bundle <span class="nb">install</span>
+
+<span class="c"># Build and serve locally (default port 4000)</span>
+bundle <span class="nb">exec </span>jekyll serve
+
+<span class="c"># Build with drafts visible</span>
+bundle <span class="nb">exec </span>jekyll serve <span class="nt">--drafts</span>
+
+<span class="c"># Build for production</span>
+bundle <span class="nb">exec </span>jekyll build
+</code></pre></div></div>
+
+<h3 id="deployment">Deployment</h3>
+
+<p>This is a GitHub Pages site. Deployment happens automatically when changes are pushed to the <code class="language-plaintext highlighter-rouge">master</code> branch. GitHub Pages builds and serves the site automatically.</p>
+
+<h2 id="working-with-posts">Working with Posts</h2>
+
+<h3 id="post-file-naming-convention">Post File Naming Convention</h3>
+
+<p>Posts MUST follow this naming pattern:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_posts/YYYY-MM-DD-title-with-hyphens.{md,html}
+</code></pre></div></div>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">_posts/2018-6-20-Use-tensorflow-to-calculate-gradients.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_posts/2016-08-03-Updated-gems-broken-jekyll.md</code></li>
+</ul>
+
+<h3 id="post-front-matter">Post Front Matter</h3>
+
+<p>Required and common front matter fields:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>                  <span class="c1"># REQUIRED: Use 'post' layout</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Your Post Title</span>        <span class="c1"># REQUIRED: Post title</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">memo programming</span>    <span class="c1"># Optional: Space-separated categories</span>
+<span class="na">comments</span><span class="pi">:</span> <span class="no">true</span>                <span class="c1"># Optional: Enable Disqus comments (default: false)</span>
+<span class="na">image</span><span class="pi">:</span> <span class="s">filename.jpg</span>           <span class="c1"># Optional: Featured image (from /images/)</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="post-content-guidelines">Post Content Guidelines</h3>
+
+<ol>
+  <li><strong>Markdown Format</strong>: Use GitHub Flavored Markdown (GFM)</li>
+  <li><strong>Code Blocks</strong>: Use fenced code blocks with language specifiers:
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">python
+</span><span class="c1"># Your code here</span>
+<span class="p">```</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Images</strong>: Reference images from <code class="language-plaintext highlighter-rouge">/images/</code> directory:
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">Alt text</span><span class="p">](</span><span class="sx">/images/image-name.jpg</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Internal Links</strong>: Use site-relative paths with baseurl:
+    <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/path/to/page/
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="drafts">Drafts</h3>
+
+<ul>
+  <li>Place draft posts in <code class="language-plaintext highlighter-rouge">_drafts/</code> directory</li>
+  <li>Drafts don’t require dates in filename</li>
+  <li>View drafts locally with <code class="language-plaintext highlighter-rouge">--drafts</code> flag</li>
+  <li>Move to <code class="language-plaintext highlighter-rouge">_posts/</code> with proper date when ready to publish</li>
+</ul>
+
+<h2 id="working-with-pages">Working with Pages</h2>
+
+<h3 id="page-types">Page Types</h3>
+
+<ol>
+  <li><strong>Simple Pages</strong>: Use <code class="language-plaintext highlighter-rouge">layout: page</code> front matter</li>
+  <li><strong>Pages with Images</strong>: Use <code class="language-plaintext highlighter-rouge">layout: page_w_picture</code> front matter</li>
+</ol>
+
+<h3 id="navigation">Navigation</h3>
+
+<p>Navigation is configured in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">navigation</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Home</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">/index.html</span>
+ <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">About</span>
+   <span class="na">url</span><span class="pi">:</span> <span class="s">/about/index.html</span>
+</code></pre></div></div>
+
+<p>To add a new page to navigation, add it to this list.</p>
+
+<h2 id="styling--assets">Styling &amp; Assets</h2>
+
+<h3 id="sass-architecture">Sass Architecture</h3>
+
+<ul>
+  <li>Partials in <code class="language-plaintext highlighter-rouge">_sass/</code> are imported into main stylesheets</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">_base.scss</code> for foundational styles</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">_layout.scss</code> for layout-specific styles</li>
+  <li>Syntax highlighting styles in <code class="language-plaintext highlighter-rouge">_syntax-highlighting.scss</code></li>
+</ul>
+
+<h3 id="adding-images">Adding Images</h3>
+
+<ol>
+  <li><strong>Post/Page Images</strong>: Place in <code class="language-plaintext highlighter-rouge">/images/</code> directory</li>
+  <li><strong>Asset Images</strong>: Place in <code class="language-plaintext highlighter-rouge">/assets/img/</code> directory</li>
+  <li>Reference in posts/pages using absolute paths from root</li>
+</ol>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>JavaScript files are in <code class="language-plaintext highlighter-rouge">/assets/js/</code> and included via <code class="language-plaintext highlighter-rouge">_includes/scripts.html</code>.</p>
+
+<h2 id="plugins--custom-functionality">Plugins &amp; Custom Functionality</h2>
+
+<h3 id="tag-generator-plugin">Tag Generator Plugin</h3>
+
+<p>Location: <code class="language-plaintext highlighter-rouge">_plugins/_tag_gen.rb</code></p>
+
+<p><strong>What it does:</strong></p>
+<ul>
+  <li>Automatically generates individual tag pages for all tags used in posts</li>
+  <li>Creates pages at <code class="language-plaintext highlighter-rouge">/tag/[tag-name]/</code> for each unique tag</li>
+  <li>Uses <code class="language-plaintext highlighter-rouge">tag_index.html</code> layout</li>
+</ul>
+
+<p><strong>Configuration in _config.yml:</strong></p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tag_page_layout</span><span class="pi">:</span> <span class="s">tag_page</span>
+<span class="na">tag_page_dir</span><span class="pi">:</span> <span class="s">tag</span>
+<span class="na">tag_permalink_style</span><span class="pi">:</span> <span class="s">pretty</span>
+</code></pre></div></div>
+
+<p><strong>Usage in Posts:</strong>
+Tags are defined in front matter as space-separated categories or tags.</p>
+
+<h3 id="other-jekyll-plugins">Other Jekyll Plugins</h3>
+
+<p>Configured in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">jekyll-paginate</span><span class="pi">,</span> <span class="nv">jemoji</span><span class="pi">]</span>
+<span class="na">paginate</span><span class="pi">:</span> <span class="m">5</span>
+<span class="na">paginate_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">blog/page:num/"</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>jekyll-paginate</strong>: Enables pagination (5 posts per page)</li>
+  <li><strong>jemoji</strong>: Enables GitHub emoji support</li>
+</ul>
+
+<h2 id="building--testing">Building &amp; Testing</h2>
+
+<h3 id="automated-testing">Automated Testing</h3>
+
+<p>GitHub Actions workflows automatically test changes:</p>
+<ul>
+  <li><strong>Jekyll Build Test</strong>: Runs on all PRs and pushes to master</li>
+  <li><strong>Security Audit</strong>: Runs daily to check for vulnerabilities</li>
+  <li><strong>Dependency Updates</strong>: Runs weekly to keep dependencies current</li>
+</ul>
+
+<p>See <code class="language-plaintext highlighter-rouge">.github/workflows/README.md</code> for details on each workflow.</p>
+
+<h3 id="before-committing-changes">Before Committing Changes</h3>
+
+<ol>
+  <li><strong>Build locally</strong> to check for errors:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Serve locally</strong> to preview:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Check for common issues:</strong>
+    <ul>
+      <li>Verify post filenames follow date convention</li>
+      <li>Ensure YAML front matter is valid</li>
+      <li>Check that all image references are correct</li>
+      <li>Test internal links</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>Note</strong>: The Jekyll Build Test workflow will automatically check your changes when you create a PR.</p>
+
+<h3 id="dependency-updates">Dependency Updates</h3>
+
+<p><strong>Automated Updates</strong>: GitHub Actions workflows handle dependency updates:</p>
+<ul>
+  <li><strong>Update Dependencies workflow</strong>: Runs weekly (Mondays 9 AM UTC)
+    <ul>
+      <li>Automatically updates dependencies</li>
+      <li>Tests Jekyll build</li>
+      <li>Creates PR with changes</li>
+      <li>Can be triggered manually for immediate updates</li>
+    </ul>
+  </li>
+  <li><strong>Security Audit workflow</strong>: Runs daily
+    <ul>
+      <li>Monitors for vulnerabilities</li>
+      <li>Creates issues when found</li>
+      <li>Auto-closes when resolved</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Dependabot</strong>: Also configured for weekly updates (backup system)</p>
+
+<p><strong>Manual Updates</strong>: Run <code class="language-plaintext highlighter-rouge">bundle update</code> locally when needed</p>
+
+<p><strong>Security Note</strong>: See <code class="language-plaintext highlighter-rouge">SECURITY_UPDATE_GUIDE.md</code> for detailed information about:</p>
+<ul>
+  <li>Current vulnerability status</li>
+  <li>How to update dependencies to fix security issues</li>
+  <li>Compatibility with GitHub Pages</li>
+  <li>Post-update testing checklist</li>
+  <li>GitHub Actions workflows usage</li>
+</ul>
+
+<h2 id="git-workflow">Git Workflow</h2>
+
+<h3 id="branch-strategy">Branch Strategy</h3>
+
+<ul>
+  <li><strong>master</strong>: Production branch (auto-deploys to GitHub Pages)</li>
+  <li><strong>claude/[task]-[id]</strong>: Feature branches for AI assistant work</li>
+</ul>
+
+<h3 id="branch-naming-convention">Branch Naming Convention</h3>
+
+<p>When working as an AI assistant, use branches prefixed with <code class="language-plaintext highlighter-rouge">claude/</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>claude/add-new-post-XyZ123
+claude/fix-styling-AbC456
+claude/update-about-page-DeF789
+</code></pre></div></div>
+
+<h3 id="commit-messages">Commit Messages</h3>
+
+<p>Follow these conventions:</p>
+<ol>
+  <li>Use imperative mood (“Add feature” not “Added feature”)</li>
+  <li>Keep first line under 70 characters</li>
+  <li>Include session URL at end:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add comprehensive CLAUDE.md documentation
+
+https://claude.ai/code/session_XXXXX
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="push-protocol">Push Protocol</h3>
+
+<p>Always push to feature branches:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin claude/branch-name
+</code></pre></div></div>
+
+<p>Never force push to master unless explicitly requested.</p>
+
+<h2 id="key-conventions-for-ai-assistants">Key Conventions for AI Assistants</h2>
+
+<h3 id="do">DO:</h3>
+
+<ol>
+  <li><strong>Read existing posts</strong> before creating new ones to match style and formatting</li>
+  <li><strong>Follow naming conventions</strong> strictly for posts (YYYY-MM-DD-title.md)</li>
+  <li><strong>Test locally</strong> before committing if possible</li>
+  <li><strong>Use proper front matter</strong> with all required fields</li>
+  <li><strong>Reference the tag system</strong> when creating posts with categories</li>
+  <li><strong>Maintain consistent markdown formatting</strong> (GFM)</li>
+  <li><strong>Check for broken links</strong> when modifying pages</li>
+  <li><strong>Update navigation</strong> in _config.yml when adding new top-level pages</li>
+  <li><strong>Use existing layouts</strong> rather than creating new ones</li>
+  <li><strong>Respect the multilingual structure</strong> (English posts in _posts/en/)</li>
+</ol>
+
+<h3 id="dont">DON’T:</h3>
+
+<ol>
+  <li><strong>Don’t modify _config.yml</strong> without explicit request</li>
+  <li><strong>Don’t remove existing posts</strong> without confirmation</li>
+  <li><strong>Don’t change the site structure</strong> (directory layout) without discussion</li>
+  <li><strong>Don’t add new plugins</strong> without verifying GitHub Pages compatibility</li>
+  <li><strong>Don’t modify Gemfile</strong> unless handling dependency updates</li>
+  <li><strong>Don’t commit large binary files</strong> (images &gt; 1MB should be discussed)</li>
+  <li><strong>Don’t break pagination</strong> by removing paginate-related code</li>
+  <li><strong>Don’t remove the Disqus integration</strong> without explicit request</li>
+  <li><strong>Don’t modify the tag generator plugin</strong> unless fixing a bug</li>
+  <li><strong>Don’t push directly to master</strong> - use feature branches</li>
+</ol>
+
+<h3 id="code-style">Code Style:</h3>
+
+<ol>
+  <li><strong>HTML/Liquid</strong>: 2-space indentation</li>
+  <li><strong>YAML</strong>: 2-space indentation, use spaces not tabs</li>
+  <li><strong>Markdown</strong>: Standard GFM formatting</li>
+  <li><strong>Ruby</strong>: 4-space indentation (for plugins)</li>
+  <li><strong>Sass/CSS</strong>: 2-space indentation</li>
+</ol>
+
+<h3 id="content-guidelines">Content Guidelines:</h3>
+
+<ol>
+  <li>Posts are personal and technical in nature</li>
+  <li>Topics include: programming, physics, motorcycles, audio/acoustics, DIY</li>
+  <li>Mix of Italian and English content (recent posts tend to be English)</li>
+  <li>Code examples should be complete and runnable when possible</li>
+  <li>Technical accuracy is important - this is a scientist’s blog</li>
+</ol>
+
+<h3 id="special-files-to-note">Special Files to Note:</h3>
+
+<ul>
+  <li><strong>about.md</strong>: Contains CV, publications, patents - keep updated carefully</li>
+  <li><strong>moto.md</strong>: Motorcycle-related content page</li>
+  <li><strong>loudspeakers.md</strong>: Audio/speaker projects page</li>
+  <li><strong>feed.xml</strong>: RSS feed - don’t modify unless fixing feed issues</li>
+</ul>
+
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+
+<h3 id="jekyll-wont-build">Jekyll Won’t Build</h3>
+
+<ol>
+  <li>Check YAML front matter syntax (must have opening/closing <code class="language-plaintext highlighter-rouge">---</code>)</li>
+  <li>Verify post filename follows YYYY-MM-DD format</li>
+  <li>Check for liquid syntax errors in templates</li>
+  <li>Ensure all includes are properly closed</li>
+</ol>
+
+<h3 id="styling-not-appearing">Styling Not Appearing</h3>
+
+<ol>
+  <li>Verify Sass files compile correctly</li>
+  <li>Check browser console for CSS loading errors</li>
+  <li>Ensure asset paths are correct (use <code class="language-plaintext highlighter-rouge">site.baseurl</code> when needed)</li>
+</ol>
+
+<h3 id="tags-not-generating">Tags Not Generating</h3>
+
+<ol>
+  <li>Verify <code class="language-plaintext highlighter-rouge">_tag_gen.rb</code> plugin is present and executable</li>
+  <li>Check that <code class="language-plaintext highlighter-rouge">tag_index.html</code> layout exists</li>
+  <li>Ensure tags are properly formatted in post front matter</li>
+</ol>
+
+<h3 id="pagination-not-working">Pagination Not Working</h3>
+
+<ol>
+  <li>Verify <code class="language-plaintext highlighter-rouge">jekyll-paginate</code> is in plugins list</li>
+  <li>Check <code class="language-plaintext highlighter-rouge">paginate</code> value in _config.yml</li>
+  <li>Ensure pagination code exists in index.html</li>
+</ol>
+
+<h2 id="additional-resources">Additional Resources</h2>
+
+<ul>
+  <li>Jekyll Documentation: https://jekyllrb.com/docs/</li>
+  <li>GitHub Pages Documentation: https://docs.github.com/en/pages</li>
+  <li>Kramdown Syntax: https://kramdown.gettalong.org/syntax.html</li>
+  <li>Liquid Template Language: https://shopify.github.io/liquid/</li>
+</ul>
+
+<hr />
+
+<p><strong>Last Updated:</strong> 2026-02-06
+<strong>Maintained for:</strong> AI Assistant workflows with this repository</p>
+
+  </article>
+
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2026 <a href="http://davrandom.github.io"> /dav/random </a> Theme by <a href="http://brianmaierjr.com">Brian Maier Jr.</a> Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            
+            
+            <li><a href="https://github.com/davrandom">
+                  <svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z"></path>
+                  </svg>
+            </a></li>
+             
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

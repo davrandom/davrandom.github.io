@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>/dav/random</title>
+    <description>some of my randomness
+</description>
+    <link>https://davrandom.github.io/</link>
+    <atom:link href="https://davrandom.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 13 Apr 2026 10:43:37 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Apr 2026 10:43:37 +0000</lastBuildDate>
+    <generator>Jekyll v3.10.0</generator>
+    
+      
+      <item>
+        <title>Use tensorflow to calculate symbolic derivatives of a function (minimal example)</title>
+        <description>&lt;p&gt;I was using Theano to calculate the jacobian and hessian of some functions in my Python code, but Theano has been “discontinued”.&lt;/p&gt;
+
+&lt;p&gt;So how can I replace Theano with some other supported library?&lt;/p&gt;
+
+&lt;p&gt;Tensorflow is a possible alternative, but the library and its jargoon is mainly oriented to DeepLearning tasks. So, doing something as simple as getting the symbolic derivative of a function gets “linguistically” complicated… but we’ll see that it’s not difficult to achieve in TensorFlow… actually it’s quite the opposite!&lt;/p&gt;
+
+&lt;p&gt;I want to give you a minimal example, then you can build on it.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# get a number from terminal
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;type a number and press enter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# the function you want to calculate the gradient
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;square&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;square&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# start a TensorFlow session (you need it to evaluate numerically the symbolic expressions)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;tf_funct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# TF symbolic version of funct
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val_funct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf_funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feed_dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# value of funct in your point
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The value you entered squared: %.1f&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val_funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;grad_funct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gradients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf_funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# calculate the gradient of funct
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val_grad_funct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grad_funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feed_dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# evaluate the gradient in your point
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Twice the value you entered: %.1f&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val_grad_funct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Easy!
+HTH&lt;/p&gt;
+
+</description>
+        
+          <description>&lt;p&gt;I was using Theano to calculate the jacobian and hessian of some functions in my Python code, but Theano has been “discontinued”.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/Use-tensorflow-to-calculate-gradients/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/Use-tensorflow-to-calculate-gradients/</guid>
+        
+        
+        <category>memo programming</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>After updating ruby gems jekyll stops working</title>
+        <description>&lt;p&gt;Today I updated the ruby gems because I installed a new gem and thought that it passed a long time since the last time I updated them…&lt;/p&gt;
+
+&lt;p&gt;The rule should be ‘if it works, don’t touch it’… but… I did.&lt;/p&gt;
+
+&lt;p&gt;Searching for a solution, I actually &lt;a href=&quot;https://talk.jekyllrb.com/t/updated-gems-now-jekyll-auto-regenerate-is-broken/1574/5&quot;&gt;found one&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;To fight obsolescence I will copy anthonyjsmith solution here:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;As you’re building a GitHub Pages site, I suggest making a file in the same folder as _config.yml called Gemfile with this as the contents:&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source &apos;https://rubygems.org&apos;
+gem &apos;github-pages&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Then run these commands:&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install bundler
+bundle install
+bundle exec jekyll serve -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;The bundle exec in the last command makes sure you run the same version of Jekyll as on GitHub Pages, and the -V gives verbose output, which might give you some clues if things go wrong.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The End. HTH&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;Today I updated the ruby gems because I installed a new gem and thought that it passed a long time since the last time I updated them…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/Updated-gems-broken-jekyll/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/Updated-gems-broken-jekyll/</guid>
+        
+        
+        <category>web metapost memo</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Camminate in Catalunya</title>
+        <description>&lt;p&gt;Come la maggior parte dei post di questo sito è principalmente scritto per ricordare a me delle cose. Ma spero che possa essere in qualche modo utile anche ad altri.&lt;/p&gt;
+
+&lt;p&gt;Qui raccolgo le camminate –di solito montane– fatte in Catalunya.&lt;/p&gt;
+
+&lt;h2 id=&quot;2014&quot;&gt;2014&lt;/h2&gt;
+
+&lt;p&gt;Ottobre - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14170864&quot;&gt;Garrotxa: Volcan Santa María e Fageda&lt;/a&gt;
+ // :repeat: 13.7km  :arrow_up: 607m&lt;/p&gt;
+
+&lt;p&gt;Settembre - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14170515&quot;&gt;da Greixer a Refugio de Sant Jordi&lt;/a&gt; // :repeat: 17.4km  :arrow_up: 1485m&lt;/p&gt;
+
+&lt;h2 id=&quot;2015&quot;&gt;2015&lt;/h2&gt;
+
+&lt;p&gt;Maggio - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=9830282&quot;&gt;Bruguers - Morella - Bruguers&lt;/a&gt; // :repeat: 13.2km :arrow_up: 523m&lt;/p&gt;
+
+&lt;p&gt;Giugno - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14167993&quot;&gt;Bastiments&lt;/a&gt; // :repeat: 9.0km :arrow_up: 2714m&lt;/p&gt;
+
+&lt;p&gt;Luglio - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14168178&quot;&gt;Nuria - Puigmal - Nuria&lt;/a&gt; // :repeat: 9.8km :arrow_up: 2754m&lt;/p&gt;
+
+&lt;p&gt;Novembre - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14168244&quot;&gt;Hospital de Sangre&lt;/a&gt; // :repeat: 13.0km :arrow_up: 946m&lt;/p&gt;
+
+&lt;h2 id=&quot;2016&quot;&gt;2016&lt;/h2&gt;
+
+&lt;p&gt;Febbraio - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14168360&quot;&gt;da Sant Vicent de Castellet a Sant Jaume de Vallhonesta&lt;/a&gt; // :repeat: 11.5km :arrow_up: 354m&lt;/p&gt;
+
+&lt;p&gt;Maggio - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14168415&quot;&gt;da Olesa de Bonesvalls a La Mola del Garraf&lt;/a&gt; // :repeat: 10.5km :arrow_up: 445m&lt;/p&gt;
+
+&lt;p&gt;Luglio - &lt;a href=&quot;http://es.wikiloc.com/wikiloc/view.do?id=14168444&quot;&gt;da Presa de Cavallers a Refugio Ventosa&lt;/a&gt; // :repeat: 14.5km :arrow_up: 2037m&lt;/p&gt;
+
+</description>
+        
+          <description>&lt;p&gt;Come la maggior parte dei post di questo sito è principalmente scritto per ricordare a me delle cose. Ma spero che possa essere in qualche modo utile anche ad altri.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/camminate_in_catalunya/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/camminate_in_catalunya/</guid>
+        
+        
+        <category>viaggi memo</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>post from MrHyde app</title>
+        <description>&lt;p&gt;so… I was wandering about the possibility of having a telegram bot that interfaces with Jekyll to publish new posts…
+these days when I go home I don’t really want to open another PC and start writing posts…&lt;/p&gt;
+
+&lt;p&gt;apparently there is no such a thing as a telegram Jekyll bot yet, but an Android app should be already there, no? let’s ask Google…&lt;/p&gt;
+
+&lt;p&gt;and tha-daaa I found &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.faudroids.mrhyde&quot;&gt;MrHyde&lt;/a&gt; by faudroids! and this is my very first test from their Android app&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mrhyde.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;let’s see what happens&lt;/p&gt;
+
+&lt;p&gt;update: it would be cool to drag and drop stuff like links and images and get the markdown already in place… dreaming?&lt;/p&gt;
+
+&lt;p&gt;update 2: I actually opened a bug in faudroid github and they were kind enough to add a markdown cheatshett to their app. Now waiting for this fix to propagate until google Play.&lt;/p&gt;
+
+&lt;p&gt;update 3: the fix reached Google play!
+thanks!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/markdown1.png&quot; alt=&quot;insert markdown&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/markdown2.png&quot; alt=&quot;insert markdown list&quot; /&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;so… I was wandering about the possibility of having a telegram bot that interfaces with Jekyll to publish new posts…
+these days when I go home I don’t really want to open another PC and start writing posts…&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Jul 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/post-from-mrhyde-app/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/post-from-mrhyde-app/</guid>
+        
+        
+        <category>android memo metapost</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Running Portabee GO v1 from MacOs</title>
+        <description>&lt;p&gt;I’m finally entering the world of 3D printing. After having printed a small piece and payed quite some money, I decided to go for neighbouring resources. A colleague of mine has a small Portabee Go v1, so I decided to try it out.&lt;/p&gt;
+
+&lt;p&gt;Since it resulted quite hacky to get it printing something, I decided to take some notes for future reference.&lt;/p&gt;
+
+&lt;p&gt;Todo list:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;install software as documented by portabee (if you are under MacOs install 2014 version of printrun, the 2015 doesn’t work)&lt;/li&gt;
+  &lt;li&gt;open cura&lt;/li&gt;
+  &lt;li&gt;open model&lt;/li&gt;
+  &lt;li&gt;export gcode&lt;/li&gt;
+  &lt;li&gt;from the created gcode remove line: M109 S210.000000&lt;/li&gt;
+  &lt;li&gt;remove also the last lines where the carried is moved to home position:&lt;/li&gt;
+  &lt;li&gt;open gcode in printurn&lt;/li&gt;
+  &lt;li&gt;(in printrun)&lt;/li&gt;
+  &lt;li&gt;connect&lt;/li&gt;
+  &lt;li&gt;reset TWICE&lt;/li&gt;
+  &lt;li&gt;start the fan: M106&lt;/li&gt;
+  &lt;li&gt;set temperature&lt;/li&gt;
+  &lt;li&gt;print&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Changing values of printing velocity in Cura helps a lot with the quality of the print (to be honest, quite low for this model of printer).
+HTH&lt;/p&gt;
+
+</description>
+        
+          <description>I&apos;m finally entering the world of 3D printing. After having printed a small piece and payed quite some money, I decided to go for neighbouring resources. A colleague of mine has a small Portabee Go v1, so I decided to try it out.</description>
+        
+        <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/portabee_go/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/portabee_go/</guid>
+        
+        
+        <category>nerdiness memo tips</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Regulador de parabrisas Touratech, mi experiencia</title>
+        <description>&lt;p&gt;En junio 2015 compré una Yamaha Super Ténéré XT1200Z de segunda mano (2011). Como soy bastante alto, la pantalla normal no me cubre en los trayectos en autopista, mientras que con la pantalla más alta me faltan los clásicos dos dedos para estar bien cubierto.
+Entonces mirando los acesorios de Touratech encontré un &lt;a href=&quot;http://shop.touratech-españa.com/en/carenado-y-parabrisas/2339-regulador-del-parabrisas-con-barra-de-montaje-para-gps-para-yamaha-xt1200z-super-tenere.html#/combinacion-basica&quot;&gt;soporte para el parabrisas&lt;/a&gt; de la XT1200Z que se puede regular en altura e inclinación. Vale al rededor de los 110€ … no sale barato.&lt;/p&gt;
+
+&lt;h2 id=&quot;descripción-del-producto&quot;&gt;Descripción del producto&lt;/h2&gt;
+
+&lt;p&gt;El regulador está hecho de dos piezas metalicas, una que se atornilla al cuadro donde se atornilla la pantalla normalmente, y una otra pieza a la que hay que atornillar la pantalla. Las dos piezas deslizan una sobre la otra permitiendo regular la altura y la inclinación de la pantalla. Las dos piezas se aseguran entre ellas a través de cuatro tornillos que llevan una tuerca cada uno que se puede abrir y cerrar con los dedos.&lt;/p&gt;
+
+&lt;p&gt;El producto parece bien pensado y hecho.&lt;/p&gt;
+
+&lt;h2 id=&quot;mi-experiencia-de-uso&quot;&gt;Mi experiencia de uso&lt;/h2&gt;
+
+&lt;p&gt;La instalación es extremadamente fácil: sacar la pantalla, montar el soporte Touratech, montar otra vez la pantalla sobre el nuevo soporte. Diez minutos como mucho.&lt;/p&gt;
+
+&lt;p&gt;Parece que el producto esté bien pensado pero nunca probado en carretera. Ahora me explico.
+Este producto tiene esencialmente dos problemas, a mi manera de ver:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Las tuercas que aseguran las dos piezas se destornillan con las vibraciones de la moto&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Las arandelas y las dos piezas deslizan entre ellas, así que la pantalla vuelve a su inclinación mínima después de pocos kilómetros de autopista&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Bueno … sí es que soy un tiquismiquis.
+Sí y no: si se destornilla una tuerca y te parte un tornillo mientras que estás conduciendo, os aseguro que no es nada divertido. Y es exactamente lo que me pasó a mi. Después del susto, escribí al servicio de postventa de Touratech España para saber como/donde encontrar una tuerca, tornillo y arandelas adecuadas.&lt;/p&gt;
+
+&lt;h2 id=&quot;servicio-postventa-españa&quot;&gt;Servicio postventa España&lt;/h2&gt;
+
+&lt;p&gt;Este es el correo que les envié:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Buenos días,&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;hace un par de meses compré un regulador del parabrisas con barra de montaje para GPS para Yamaha XT1200Z Super Tenere. Después de montarlo y utilizarlo de he dado cuenta que los 4 tornillos que permiten regular la altura e inclinación del parabrisas no agarran bien (la pantalla vuelve a la inclinación mínima) y a veces se destornillan. Yo veo dos problemas:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;las arandelas son demasiado lisas y deslizan sobre el metal, así que la pantalla vuelve en posición de mínimo ángulo con el viento&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;los tornillos se destornillan solos! habría que poner un final de recorrido en la tuerca.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Mientras que estaba viajando una tuerca y el tornillo se soltaron y se volaron golpeando el deposito y los perdí. Fue un buen susto porqué no entendí enseguida lo que había pasado, pensé de haber perdido una pieza más fundamental. Además había vehículos detrás de mi y por suerte nadie se hizo daño.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Pregunta: ¿donde puedo encontrar un tornillo y tuerca adecuados? (ya que son bastante peculiares)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Muchas gracias y un saludo&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Me contestaron muy rapidamente diciendome que pedian la pieza a la fábrica de Alemania. Después de poco me llegan las piezas a casa, parece todo perfect. Intento atornillar la tuerca al tornillo pero no acaba de atornillarse… uhm… aquí pasa algo raro!
+La tuerca es de 4mm y el tornillo de 6mm!
+Escribo un correo al servicio postventa. No me contestan.
+Vuelvo a escribir un correo al servicio postventa. No me contestan.
+Escribo un percer correo al servicio postventa. No me contestan.&lt;/p&gt;
+
+&lt;p&gt;Ok.
+Ahora estoy cabreado y no hay manera de encontrar una tuerca apta.&lt;/p&gt;
+
+&lt;p&gt;Para el cabreado escribiré este articulo en 4 idiomas (lo siento si hay errores el Castellano no es mi idioma materno).
+Para la tuerca emprimiré una con una impresora 3D.&lt;/p&gt;
+
+&lt;h2 id=&quot;emprimir-una-tuerca-en-3d&quot;&gt;Emprimir una tuerca en 3D&lt;/h2&gt;
+
+&lt;p&gt;He hecho un dibujo con OpenScad de la tuerca:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/davrandom/24447444169/in/dateposted-public/&quot; title=&quot;Tuerca in OpenScad&quot;&gt;&lt;img src=&quot;https://farm2.staticflickr.com/1537/24447444169_f364b3e96e.jpg&quot; width=&quot;486&quot; height=&quot;442&quot; alt=&quot;Tuerca in OpenScad&quot; /&gt;&lt;/a&gt;&lt;script async=&quot;&quot; src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;La idea es que el plastico sirva como agarre para una tuerca normal y corriente en inox que pondremos dentro de este esqueleto de plastico.&lt;/p&gt;
+
+&lt;p&gt;Después he ido a un bar de Barcelona donde se pueden emprimir objetos en 3D, y aquí está la pieza:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/davrandom/24186766294/in/dateposted-public/&quot; title=&quot;Tuerca&quot;&gt;&lt;img src=&quot;https://farm2.staticflickr.com/1568/24186766294_7f3a08ef37_z.jpg&quot; width=&quot;536&quot; height=&quot;640&quot; alt=&quot;Tuerca&quot; /&gt;&lt;/a&gt;&lt;script async=&quot;&quot; src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;El código fuente para esta pieza está &lt;a href=&quot;https://bitbucket.org/davrandom/misc_projects/src/4e7c5a98694037af93aa3a701b41f9e9929f51b1/3D_scad/?at=master&quot;&gt;aquí&lt;/a&gt;; la pieza se llama touratech_grip y tenéis tanto el scad como el stl.&lt;/p&gt;
+
+&lt;p&gt;No estoy al 100% satisfecho con este diseño y en los próximos meses lo cambiaré bastante…&lt;/p&gt;
+
+&lt;h2 id=&quot;solucionar-el-deslizamiento-de-la-pantalla&quot;&gt;Solucionar el deslizamiento de la pantalla&lt;/h2&gt;
+
+&lt;p&gt;Una solucíon que no prevee poner arandelas más agresivas es poner una arandela de goma entre la placa del soporte y la arandela metálica que va a contacto con la tuerca.&lt;/p&gt;
+
+</description>
+        
+          <description>En junio 2015 compré una Yamaha Super Ténéré XT1200Z de segunda mano (2011). Como soy bastante alto, la pantalla normal no me cubre en los trayectos en autopista, mientras que con la pantalla más alta me faltan los clásicos dos dedos para estar bien cubierto.</description>
+        
+        <pubDate>Wed, 03 Feb 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/touratech_es/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/touratech_es/</guid>
+        
+        
+        <category>moto diy</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>My Vespa ET4 1996</title>
+        <description>&lt;p&gt;Dopo essere tornato dall’esperienza di Summer Student al Cern nel 2007, mi erano rimasti un po’ di euro in tasca. Non molti a dire il vero, cinquecento, ma sufficienti per iniziare a sognare un mezzo a due ruote con motore. 
+Un pomeriggio estivo nel dipartimento di Fisica, dopo una partita di scopone, sfoglio il settimanale di annunci della zona, “il Mercatino”. Trovo l’annuncio di una Vespa ET4 del 96 per 
+… esattamente il mio budget! Poi la Vespa…&lt;/p&gt;
+
+&lt;p&gt;Chiamo i miei “Domani vado a vedere una vespa” loro “non la comprerai mica?” …  beh intanto vado a vederla.
+Il giorno dopo mi trovo con questo signore, appena andato in pensione, molto preciso e gentile. La vespa è perfetta. Come faccio a non comprarla? E infatti la compro.&lt;/p&gt;
+
+&lt;p&gt;Qui ritratta in mezzo ai campi della furlanìa, nelle vicinanze di Muscletto.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vespetta_muscletto_small.jpg&quot; alt=&quot;vespetta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La mia esperienza con questa Vespa è stata super positiva. Affidabile, non velocissima, ho fatto un sacco di chilometri e traslochi… che non saprei quantificare esattamente.&lt;/p&gt;
+
+</description>
+        
+          <description>Un pomeriggio estivo nel dipartimento di Fisica, dopo una partita di scopone, sfoglio il settimanale di annunci della zona, &quot;il Mercatino&quot;. Trovo l&apos;annuncio di una Vespa ET4 del 96 per ... esattamente il mio budget! Poi la Vespa...</description>
+        
+        <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/vespettaET4/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/vespettaET4/</guid>
+        
+        
+        <category>moto</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>La Tenerona (XT750Z) 1989</title>
+        <description>&lt;p&gt;Dopo essere stato investito da una signora distratta in País Vasco nel viaggio con Andrea, nel mentre in cui la Dory veniva lentamente riparata, ho pensato bene di prendere un’altra moto.
+La caratteristica principale era che doveva essere economica. A fine 2013 compro un mito: la Super Ténéré XT750Z del 1989 per “soli” 2500 euro, con borse rigide e tutto…&lt;/p&gt;
+
+&lt;p&gt;Sulla carta fantastica: posso viaggiare, fare un po’ di enduro (i campi! l’infanzia! la natura!)&lt;/p&gt;
+
+&lt;p&gt;Si rivelerà il peggior acquisto mai fatto finora. La rivenderò a inizio 2015 per 1000 euro e con la voglia di andare in moto quasi estinta.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tenerona_a_casa.jpg&quot; alt=&quot;tenerona a bcn&quot; /&gt;&lt;/p&gt;
+</description>
+        
+          <description>Dopo essere stato investito da una signora distratta in País Vasco nel viaggio con Andrea, nel mentre in cui la Dory veniva lentamente riparata, ho pensato bene di prendere un&apos;altra moto.</description>
+        
+        <pubDate>Fri, 22 Jan 2016 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/tenerona/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/tenerona/</guid>
+        
+        
+        <category>moto</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Trying a table in md</title>
+        <description>&lt;p&gt;This is a typical table written in markdown&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 1 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;left-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Which is cool and fast.&lt;/p&gt;
+
+&lt;p&gt;But actually I would like to make a table without borders… and for that you need to write the table in html :(
+A &lt;a href=&quot;http://www.tablesgenerator.com/html_tables&quot;&gt;nice website&lt;/a&gt; can help in this task. Try it out!&lt;/p&gt;
+
+&lt;p&gt;HTH
+d&lt;/p&gt;
+</description>
+        
+          <description>A typical table in md</description>
+        
+        <pubDate>Thu, 10 Dec 2015 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/tabletest/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/tabletest/</guid>
+        
+        <category>memo</category>
+        
+        <category>tips</category>
+        
+        
+        <category>memo</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Open a terminal IN Vim</title>
+        <description>&lt;p&gt;I was searching for a way to open a shell in Vim and I got many answers.
+Essentially all the juice is listed &lt;a href=&quot;http://stackoverflow.com/questions/1236563/how-to-run-a-terminal-inside-of-vim&quot;&gt;here&lt;/a&gt;.
+First I will list the ones that are possible but that are not &lt;em&gt;my&lt;/em&gt; answer:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:! somecommand &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ENTER]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:! bash &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;or your favourite shell&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ENTER]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But no… this is not what I wanted. I wanted a &lt;em&gt;real&lt;/em&gt; terminal &lt;strong&gt;inside&lt;/strong&gt; (a tab of) &lt;strong&gt;Vim&lt;/strong&gt;… so the answer is &lt;a href=&quot;https://code.google.com/p/conque/&quot;&gt;ConqueTerm&lt;/a&gt;. Enjoy!&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+
+&lt;p&gt;d&lt;/p&gt;
+</description>
+        
+          <description>Sometimes you really want to open a terminal IN Vim. Here is how you do that!</description>
+        
+        <pubDate>Wed, 19 Aug 2015 00:00:00 +0000</pubDate>
+        <link>https://davrandom.github.io/blog/open_terminal_in_vim/</link>
+        <guid isPermaLink="true">https://davrandom.github.io/blog/open_terminal_in_vim/</guid>
+        
+        <category>memo</category>
+        
+        <category>tips</category>
+        
+        
+        <category>memo</category>
+        
+      </item>
+      
+    
+  </channel>
+</rss>

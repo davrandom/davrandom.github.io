@@ -1,0 +1,21 @@
+## Dependency Updates
+
+    activesupport (8.1.3)
+    addressable (2.9.0)
+    bigdecimal (4.1.2)
+    ethon (0.18.0)
+      logger
+    execjs (2.10.1)
+    faraday (2.14.2)
+    faraday-net_http (3.4.3)
+    ffi (1.17.4)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    json (2.19.7)
+    minitest (6.0.6)
+      drb (~> 2.0)
+    nokogiri (1.19.3)
+    nokogiri (1.19.3-arm64-darwin)
+    nokogiri (1.19.3-x86_64-linux-gnu)
+    typhoeus (1.6.0)
+      ethon (>= 0.18.0)

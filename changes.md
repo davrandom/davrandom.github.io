@@ -1,0 +1,22 @@
+## Dependency Updates
+
+    activesupport (8.1.3)
+    addressable (2.9.0)
+    bigdecimal (4.1.2)
+    concurrent-ruby (1.3.7)
+    dnsruby (1.74.0)
+    ethon (0.18.0)
+      logger
+    execjs (2.10.1)
+    faraday (2.14.3)
+    faraday-net_http (3.4.4)
+    ffi (1.17.4)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    i18n (1.15.2)
+    json (2.20.0)
+    minitest (6.0.6)
+      drb (~> 2.0)
+    nokogiri (1.19.4)
+    nokogiri (1.19.4-arm64-darwin)
+    nokogiri (1.19.4-x86_64-linux-gnu)

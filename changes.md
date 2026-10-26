@@ -1,0 +1,22 @@
+## Dependency Updates
+
+    activesupport (8.1.4)
+    addressable (2.9.0)
+    bigdecimal (4.1.3)
+    concurrent-ruby (1.3.8)
+    csv (3.3.6)
+    dnsruby (1.74.0)
+    ethon (0.18.0)
+      logger
+    execjs (2.10.2)
+      json (>= 2)
+    faraday (2.15.1)
+      faraday-net_http (>= 2.0, < 3.6)
+    faraday-net_http (3.5.0)
+    ffi (1.17.4)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    i18n (1.15.2)
+    json (3.1.0)
+    listen (3.10.1)
+    minitest (6.0.6)

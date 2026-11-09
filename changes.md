@@ -1,0 +1,22 @@
+## Dependency Updates
+
+    activesupport (8.1.4.1)
+    addressable (2.9.2)
+    bigdecimal (4.1.3)
+    concurrent-ruby (1.3.8)
+    csv (3.3.7)
+    dnsruby (1.74.0)
+    ethon (0.19.1)
+      logger
+    execjs (2.10.2)
+      json (>= 2)
+    faraday (2.15.1)
+      faraday-net_http (>= 2.0, < 3.6)
+    faraday-net_http (3.5.0)
+    ffi (1.17.4)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    github-pages (233)
+      jekyll-feed (= 0.18.0)
+      jekyll-redirect-from (= 0.17.0)
+      jekyll-remote-theme (= 0.6.2)
